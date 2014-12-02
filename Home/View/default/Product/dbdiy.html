@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<title>DIY</title>
+<meta name="keywords" content="酷乐虎壁纸系统" />
+<meta name="description" content="酷乐虎壁纸系统" />
+<meta name="robots" content="all" />
+<meta name="author" content="酷乐虎壁纸系统" />
+<meta name="Classification" content="酷乐虎壁纸系统" />
+<meta name="Copyright" content="酷乐虎网络 CopyRight 2014" />
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__HOME_PUBLIC__/themes/css/style.css">
+
+<script src="__HOME_PUBLIC__/themes/js/jquery-1.10.1.min.js"></script>
+<script src="__HOME_PUBLIC__/themes/js/jquery-migrate-1.2.1.min.js"></script>
+
+<link rel="stylesheet" href="__HOME_PUBLIC__/themes/css/idangerous.swiper.css"><!-- 划屏 -->
+<link rel="stylesheet" href="__HOME_PUBLIC__/themes/css/idangerous.swiper.scrollbar.css"><!-- 划屏滚动条 -->
+<script src="__HOME_PUBLIC__/themes/js/idangerous.swiper-2.0.min.js"></script><!-- 划屏 -->
+<script src="__HOME_PUBLIC__/themes/js/idangerous.swiper.scrollbar-2.0.js"></script><!-- 划屏滚动条 -->
+
+<script type="text/javascript" src="__HOME_PUBLIC__/themes/js/jquery.rotate.min.js"></script><!-- 图标翻转 -->
+<!-- <script src="__HOME_PUBLIC__/js.js"></script> -->
+<script>
+$(function(){
+	$(".top_m_l").animate({top: 22}, 1000);
+	$(".top_m_r").animate({top: 15}, 1000);
+});
+
+$(document).ready(function(){
+$(".img2").rotate({ 
+   bind: 
+     { 
+        mouseover : function() { 
+            $(this).rotate({animateTo:90});
+        },
+        mouseout : function() { 
+            $(this).rotate({animateTo:0});
+        }
+     } 
+});
+});
+</script>
+
+<!--[if lte IE 6]>
+<script type="text/javascript" src="themes/js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+    DD_belatedPNG.fix('body *');
+</script>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script src="themes/js/html5.js"></script>
+<![endif]-->
+
+<script>
+$(function(){
+  var ssJson1 = {$str};
+	//壁纸
+	//confirm(ssJson1);
+	if(ssJson1 == ""){
+    $(".doors1").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");
+  }else{
+    showjson1(ssJson1);
+  }
+
+	function showjson1(sjson){
+		$.each(sjson,function(i){
+		$(".doors1").append("<li><div><a href=\"javascript:void(0);\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" data-id=\""+ sjson[i].id +"\" /></a></div></li>");
+		});
+	}
+
+});
+
+$(function(){
+	//切换特效
+	$(".doors1").find("a").click(function(){
+			
+			var ss_Url = $(this).find("img").attr("alt");
+			var ss_txt = $(this).find("img").attr("title");
+			var ss_id = $(this).find("img").attr("data-id");
+			$(".doors1").find("div").css("border-color","#ccc");
+			$(".doors1").find("p").remove();
+			$(this).css("position","relative").append("<p style=\"height: 15px;width: 70px; font-size:12px; color:#fff; text-align:left; background-position:right bottom;background-color:#666;border:solid 1px #c90000; text-align:center; background-image: url(Templates/land/html/SSImages/ss_checked.png);background-repeat: no-repeat;display: block;position: absolute;right: 0px;bottom: 0px;\">"+ss_txt+"</p>");
+			$(".doorsimg2").hide();
+			$(".doorsimg2").html("<img src=\""+ ss_Url +"\" />").fadeIn("fast");
+			
+			$("#xcd").html(ss_id);
+		});
+	//切换特效	
+});
+
+</script>
+
+
+<script type="text/javascript" charset="utf-8" src="__HOME_PUBLIC__/themes/js/mousewheel.js"></script><!-- 详细页滚动条 -->
+<script type="text/javascript" charset="utf-8" src="__HOME_PUBLIC__/themes/js/easyscroll.js"></script><!-- 详细页滚动条 -->
+<script type="text/javascript">$(function(){$('.div_scroll').scroll_absolute({arrows:true})});</script><!-- 详细页滚动条 -->
+<script type="text/javascript">$(function(){$('.div_scroll1').scroll_absolute({arrows:true})});</script><!-- 详细页滚动条 -->
+
+</head>
+
+<body>
+
+<div class="top">
+	<div class="top_m">
+    	<div class="top_m_l">
+          <a href="javascript:void(0)" class="top_a1">{:getName()}</a>
+            <a href="{:U('Product/shop_cart')}" class="top_a2">购物车</a>
+            <a href="{:U('Product/wddd')}" class="top_a3">用户中心</a>
+            <a href="{:U('Product/prosc')}" class="top_a3">产品收藏夹</a>
+        </div>
+        <div class="top_m_r">
+          <a class="a1" href="javascript:void(0)">店内商品</a>
+          <a class="a2" href="{:U('News/index')}">信息中心</a>
+          <a class="a3" href="{:U('Product/product')}">产品中心</a>
+          <a class="a4" href="{:U('Product/huodong')}">优惠活动</a>
+        </div>
+        <div class="tip_r"><a href="javascript:;" onClick="javascript:history.back(-1);" class="btn_back"></a></div>
+    </div>
+</div>
+<!--/top-->
+
+<div class="tip">
+	<div class="tip_l">当前位置： <a href="#">产品中心</a> > <a href="#">{$group1['name']}</a> > <a href="#">{$group2['name']}</a> > <a href="#">{$group3['name']}</a> > <a href="#">{$group4['name']}</a> > <a href="#">效果图展示</a></div>
+</div>
+<!--/tip-->
+
+<div class="in_wrapper_pag">
+	<div class="diy">
+    	
+    <div class="show">
+    <div class="main_left div_scroll1">
+      <div class="doors_wrap">
+        <div class="title">
+        </div>
+        <div class="doors_ture">
+          <ul class="">
+            <li>
+              <ul class="doors1" >
+                <!-- 图片显示 -->
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--main_left-->
+    
+    <div class="item01">
+      <div class="scene">
+        <div id="scene_ture">
+          <ul>
+            <li class="scene2">
+              <div class="zind0"><span class="doorsimg"><img src="__ROOT__/Uploads/Images/{$doormodel['image2']}" width="630" height="410"/></span></div>
+              <!--主场景-->
+              <div class="zind2"><span class="doorsimg2"><img src="__ROOT__/Uploads/Images/{$pro.image5}"  width="630" height="410" /></span></div>
+              <!--地板-->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--场景-->
+    <div class="menucj">
+      <ul class="nav div_scroll">
+        <volist name="list" id="vo">
+          <if condition="$doormodel['id'] eq $vo['id']">
+            <li><a href="{:U('Product/dbdiy?ppid='.$ppid.'& pid='.$pid.'&id='.$pro['id'].'&group3_id='.$group3['id'].'&doormodel_id='.$vo['id'])}"  id="nav1" class="dqnav"><img src="__ROOT__/Uploads/Images/{$vo['image1']}"/></a></li>
+          <else/>
+            <li><a href="{:U('Product/dbdiy?ppid='.$ppid.'& pid='.$pid.'&id='.$pro['id'].'&group3_id='.$group3['id'].'&doormodel_id='.$vo['id'])}"  id="nav1"><img src="__ROOT__/Uploads/Images/{$vo['image1']}"/></a></li>
+          </if>
+          
+        </volist>
+       <!--  <li><a href="diy.html"  id="nav1" class="dqnav"><img src="__HOME_PUBLIC__/images/cj1.jpg"/></a></li>
+        <li><a href="diy.html"  id="nav1" ><img src="__HOME_PUBLIC__/images/cj1.jpg"/></a></li>
+        <li><a href="diy.html"  id="nav1" ><img src="__HOME_PUBLIC__/images/cj1.jpg"/></a></li>
+        <li><a href="diy.html"  id="nav1" ><img src="__HOME_PUBLIC__/images/cj1.jpg"/></a></li>
+        <li><a href="diy.html"  id="nav1" ><img src="__HOME_PUBLIC__/images/cj1.jpg"/></a></li>
+        <li><a href="diy.html"  id="nav1" ><img src="__HOME_PUBLIC__/images/cj1.jpg"/></a></li> -->
+      </ul>
+    </div>
+    <!-- 场景切换导航 --> 
+    
+    
+    <div class="bh">
+    <span id="xcd">编号：{$pro.number}</span>
+    <a class="a5" href="{:U('Product/pro_page?ppid='.$ppid.'&pid='.$pid.'&pidd='.$pidd.'&id='.$id)}">产品查看</a>
+    <a class="a6" id="windowclosebutton" href="javascript:void(0)">提交订单</a>
+    </div>
+    
+  </div>
+        
+		<div class="clear"></div>
+	</div>
+
+</div>
+<input type="hidden" id="doormodel_id" value="{$doormodel['id']}">
+<script>
+$(function (){
+  var e = jQuery.Event("click");
+  $(".doors1 li").eq(0).find("a").trigger(e);
+
+
+});
+</script>
+<script type="text/javascript" src="__HOME_PUBLIC__/themes/js/lanrenzhijia.js"></script>
+<div class="PathInner" id="PathMenu" style="position:fixed; left:20px; bottom:20px;">
+  <div class="PathMain">
+    <div class="Tmain" onclick="PathRun();">
+      <div class="rotate"><span class="cover"></span></div>
+    </div>
+  </div>
+  <div class="PathItem">
+   <a class="link" href="{:U('Product/product')}" title="产品中心"> 
+    <span class="item" style="background-image:url(__HOME_PUBLIC__/images/moment_icn_pic.png);"></span>
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/huodong')}" title="优惠活动"> 
+    <span class="item" style="background-image:url(__HOME_PUBLIC__/images/moment_icn_info.png);"></span> 
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/search')}" title="高级搜索"> 
+    <span class="item" style="background-image: url(__HOME_PUBLIC__/images/moment_icn_address.png);"></span> 
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/shop_cart')}" title="我的购物车"> 
+    <span class="item" style="background-image: url(__HOME_PUBLIC__/images/moment_icn_price.png);"></span> 
+   </a>
+  </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+      $("#windowclosebutton").click(function(){
+          var url = "__URL__/shop_cart/id/"+{$id}+"/xg_price/"+{$price['price']};
+          window.location.href = url;
+      });
+    });
+</script>
+</body>
+</html>

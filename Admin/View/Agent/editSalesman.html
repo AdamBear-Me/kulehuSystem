@@ -1,0 +1,136 @@
+<extend name="Public/base" />
+
+<block name="body">
+    <div class="main-title cf">
+        <h2>查看修改业务员</h2>
+    </div>
+
+    <!-- 标签页导航 -->
+    <div class="tab-wrap">
+        <div class="tab-content">
+            <!-- 表单 -->
+            <form id="form" action="{:U('')}" method="post" enctype="multipart/form-data" class="form-horizontal doc-modal-form">
+                <!-- 基础 -->
+                <div id="tab1" class="tab-pane in tab1">
+                    <div class="form-item cf">
+                        <label class="item-label">真实姓名</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="name" value="{$salesman.name}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">身份证号码</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large check id_card" name="id_card" value="{$salesman.id_card}">
+                        </div>
+                    </div>
+                   <div class="form-item cf">
+                        <label class="item-label">电话</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="phone" value="{$salesman.phone}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">性别</label>
+                        <div class="controls">
+                            <if condition="$salesman.sex eq 1">
+                                男：<input type="radio" class="text " name="sex" checked>
+                                女：<input type="radio" class="text " name="sex" >
+                                <else/>
+                                男：<input type="radio" class="text " name="sex" >
+                                女：<input type="radio" class="text " name="sex" checked>
+                            </if>
+
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">部门</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="department" value="{$salesman.department}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">职位</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="position" value="{$salesman.position}">
+                        </div>
+                    </div>
+                    <!--<div class="form-item cf">
+                        <label class="item-label">昵称</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="name2" value="{$salesman.name2}">
+                        </div>
+                    </div>-->
+                </div>
+
+                <!-- 按钮 -->
+                <div class="form-item cf">
+                    <label class="item-label"></label>
+                    <div class="controls edit_sort_btn">
+                        <input type="hidden" value="{$salesman.id}" name="id">
+                        <button class="btn submit-btn" type="submit" target-form="form-horizontal">确 定</button>
+                        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</block>
+<block name="script">
+
+<script type="text/javascript" charset="utf-8">
+    //导航高亮
+    highlight_subnav('{:U('store/add')}');
+
+
+
+     //分类联动
+         $(document).ready(function() {
+
+             var group1=$("#group1");
+             group1.change(function(){
+                 var check_id1=group1.val(); //获取Select选择的Value
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                 	$("#group11").html(data);
+                 });
+             });
+
+             var group2=$("#group2");
+             group2.change(function(){
+                 var check_id1=group2.val(); //获取Select选择的Value
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                 	$("#group51").html(data);
+                 });
+             });
+
+             var group3=$("#group3");
+             group3.change(function(){
+                 var check_id1=group3.val(); //获取Select选择的Value
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                 	$("#group31").html(data);
+                 });
+             });
+
+             var group4=$("#group4");
+             group4.change(function(){
+                 var check_id1=group4.val(); //获取Select选择的Value
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                 	$("#group41").html(data);
+                 });
+             });
+
+             var group5=$("#group5");
+             group5.change(function(){
+                 var check_id1=group5.val(); //获取Select选择的Value
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                 	$("#group51").html(data);
+                 });
+             });
+
+         });
+
+
+</script>
+</block>
+
+

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店内商品-酷乐虎壁纸系统</title>
+<meta name="keywords" content="酷乐虎壁纸系统">
+<meta name="description" content="酷乐虎壁纸系统">
+<meta name="author" content="酷乐虎壁纸系统"/>
+<meta name="copyright" content="酷乐虎壁纸系统"/>
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__HOME_PUBLIC__/skin/css/style.css">
+<script src="__HOME_PUBLIC__/skin/js/jquery-1.10.1.min.js"></script>
+<script src="__HOME_PUBLIC__/skin/js/jquery-migrate-1.2.1.min.js"></script>
+
+<link rel="stylesheet" href="__HOME_PUBLIC__/skin/css/idangerous.swiper.css"><!-- 划屏 -->
+<link rel="stylesheet" href="__HOME_PUBLIC__/skin/css/idangerous.swiper.scrollbar.css"><!-- 划屏滚动条 -->
+<script src="__HOME_PUBLIC__/skin/js/idangerous.swiper-2.0.min.js"></script><!-- 划屏 -->
+<script src="__HOME_PUBLIC__/skin/js/idangerous.swiper.scrollbar-2.0.js"></script><!-- 划屏滚动条 -->
+
+<script>
+$(function(){
+	$("#menu ul").animate({top: 0}, 1000);
+});
+</script>
+
+<!-- 产品滑动 -->
+
+
+</head>
+
+<body>
+<div class="in_wrapper">
+    <include file="nav" />
+    <!--/top-->
+    
+    <div class="tip tip_t">
+    <div class="tip_l">当前位置：信息中心</div>
+    <div class="tip_r">
+      <input class="txt" name="" type="text" value="产品搜索" />
+      <a class="btn_ss2" href="search.html"></a>
+    </div>
+    <div class="clear"></div>
+    </div>
+  	<!--/tip-->
+
+    <div class="content">
+    <div class="pro_ul_news">
+      <ul class="news_l">
+       <volist name="list" id="vo">
+        <li><a href="{:U('News/news_page?id='.$vo['id'])}">{$vo.title}</a><i>{$vo.time|date="Y-m-d",###}</i></li>
+       </volist>
+      </ul>
+      <ul class="news_r">
+        <li><img src="__HOME_PUBLIC__/images/img_1.jpg" /></li>
+        <li><img src="__HOME_PUBLIC__/images/img_1.jpg" /></li>
+      </ul>
+      <div class="clear"></div>
+      <div style="margin:20px;">{$page}</div>
+    </div>
+    <div class="clear"></div>
+    <!--/product--> 
+  </div>
+  <!--content-->
+  <div class="h45"></div>
+</div>
+
+</body>
+</html>

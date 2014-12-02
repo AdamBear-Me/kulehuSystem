@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店内商品-酷乐虎壁纸系统</title>
+<meta name="keywords" content="酷乐虎壁纸系统">
+<meta name="description" content="酷乐虎壁纸系统">
+<meta name="author" content="酷乐虎壁纸系统"/>
+<meta name="copyright" content="酷乐虎壁纸系统"/>
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__HOME_PUBLIC__/skin/css/style.css">
+<script src="__HOME_PUBLIC__/skin/js/jquery-1.10.1.min.js"></script>
+<script src="__HOME_PUBLIC__/skin/js/jquery-migrate-1.2.1.min.js"></script>
+<link rel="stylesheet" href="__HOME_PUBLIC__/skin/css/idangerous.swiper.css">
+<!-- 划屏 -->
+<link rel="stylesheet" href="__HOME_PUBLIC__/skin/css/idangerous.swiper.scrollbar.css">
+<!-- 划屏滚动条 -->
+<script src="__HOME_PUBLIC__/skin/js/idangerous.swiper-2.0.min.js"></script><!-- 划屏 -->
+<script src="__HOME_PUBLIC__/skin/js/idangerous.swiper.scrollbar-2.0.js"></script><!-- 划屏滚动条 -->
+    <link rel="stylesheet" href="__HOME_PUBLIC__/build/kalendae.css" type="text/css" charset="utf-8">
+    <script src="__HOME_PUBLIC__/build/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+$(function(){
+	$("#menu ul").animate({top: 0}, 1000);
+});
+</script>
+
+<!-- 产品滑动 -->
+
+</head>
+
+<body>
+<div class="in_wrapper">
+  <include file="nav" />
+  <!--/top-->
+  
+  <div class="tip tip_t">
+    <div class="tip_l">当前位置：销售统计</div>
+    <div class="tip_r">
+     <form action="{:U('Product/search')}" method="post">
+            <input class="txt" name="name" type="text" placeholder="产品搜索" />
+            <input type="submit" class="btn_ss22" href="search.html">
+            <input type="submit" class="btn_ss2" href="gsearch.html"></div>
+     </form>
+    <div class="clear"></div>
+  </div>
+  <!--/tip-->
+  
+  <div class="content" style="padding:10px 0; height:548px;">
+    <div class="center">
+      <div class="c_nav">
+        <li><a href="{:U('Product/user')}">用户资料</a></li>
+        <li><a href="{:U('Product/wddd')}">我的订单</a></li>
+        <li><a href="{:U('Product/ddcx')}">订单查询</a></li>
+        <li><a class="on" href="{:U('Product/statistic')}">销售统计</a></li>
+      </div>
+      <div class="c_con">
+        <h3>用户单位</h3>
+        <div class="c_con_4">
+          <table align="center" cellpadding="0" cellspacing="1" bgcolor="#7d7d7d">
+            <tr>
+              <td bgcolor="#d0d0d0">本月销售：{$price} 元&nbsp;&nbsp;&nbsp;&nbsp;订单： {$count} 个<br />
+                累计销售：{$allprice} 元&nbsp;&nbsp;&nbsp;订单： {$allcount} 个</td>
+            </tr>
+            <tr>
+                <form action="{:U('')}" method="post">
+              <td bgcolor="#d0d0d0"><div class="fl" style="margin-left:30px;">
+                  <input name="time1" class="auto-kal" name="" type="text" style="width:68px; height:22px; background:#fff; padding:0 5px; border:#7d7d7d solid 1px; border-radius:11px; color:#999;" placeholder="年/月" />
+                  至
+                  <input name="time2" class="auto-kal" name="" type="text" style="width:68px; height:22px; background:#fff; padding:0 5px; border:#7d7d7d solid 1px; border-radius:11px; color:#999;" placeholder="年/月" />
+                </div>
+                <div class="fr" style="margin-right:30px;"><input type="submit" value="查询"></div><div class="cl"></div>
+                <div class="cl"></div></td>
+                <form action="{:U('')}" method="post">
+            </tr>
+            <tr>
+              <td bgcolor="#d0d0d0">统计结果： 订单：{$cxprice} 个&nbsp;&nbsp;&nbsp;总金额： {$cxcount} 元</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <!--/end--> 
+  </div>
+  <!--content-->
+  <div class="h45"></div>
+</div>
+</body>
+</html>

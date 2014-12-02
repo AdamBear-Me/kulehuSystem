@@ -1,0 +1,106 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>样本列表</h2>
+
+    </div>
+    <div class="tools">
+            <if condition="$ppid neq 1">
+                <a class="btn" href="{:U('Product/addGroup?id='.$produce_group['id'])}">新 增</a>
+            <else/>
+                <a class="btn" href="{:U('Product/addGroup1?id='.$produce_group['id'])}">新 增</a>
+            </if>
+            <div class="search-form fr cf">
+            <div class="sleft">
+                    <input type="text" id="name" name="name" class="search-input" value="{:I('name')}" placeholder="请输入要查找的样本名称">
+                    <a class="sch-btn" href="javascript:;" id="search" url="{:U('Product/showGroup3')}"><i class="btn-search"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 数据列表 -->
+    <div class="data-table">
+        <div class="data-table table-striped">
+    <table class="">
+    <thead>
+        <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>ID</th>
+        <th>样本名称</th>
+        <th>品牌</th>
+        <th>风格</th>
+        <th>材质</th>
+        <th>产地</th>
+        <th>排序</th>
+        <if condition="($ppid eq 1) OR ($showSample eq 1)">
+            <th>游览图片</th>
+        </if>
+        <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <notempty name="list">
+        <volist name="list" id="vo">
+        <tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}" /></td>
+            <td>{$vo.id} </td>
+            <td>{$vo.name}</td>
+            <td>{$vo.pid|brand}</td>
+            <td>{$vo.style_id|brand}</td>
+            <td>{$vo.material_id|brand}</td>
+            <td>{$vo.origin_id|brand}</td>
+            <td>{$vo.sort}</td>
+            <if condition="($ppid eq 1) OR ($showSample eq 1)">
+               <td><img src="__ROOT__/Uploads/Images/{$vo.image}" style="height: 50px;"></td>
+            </if>
+            <td>
+                <if condition="($ppid eq 1) OR ($showSample eq 1)">
+                    <a href="{:U('Product/editGroup1?id='.$vo['id'])}" title="Edit">修改</a>
+                <else/>
+                    <a href="{:U('Product/editGroup?id='.$vo['id'])}" title="Edit">修改</a>
+                </if>
+                 <a href="{:U('Product/deleteGroup?id='.$vo['id'])}" title="Delete">删除</a> 
+            </td>
+        </tr>
+        </volist>
+        <else/>
+        <td colspan="7" class="text-center"> aOh! 暂时还没有内容! </td>
+        </notempty>
+    </tbody>
+    </table>
+
+        </div>
+    </div>
+    <div class="page">
+        {$page}
+    </div>
+</block>
+
+<block name="script">
+   <script type="text/javascript">
+        $(function(){
+            //搜索功能
+            $("#search").click(function(){
+                var url = $(this).attr('url');
+                var query  = $('.search-form').find('input').serialize();
+                query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+                query = query.replace(/^&/g,'');
+                if( url.indexOf('?')>0 ){
+                    url += '&' + query;
+                }else{
+                    url += '?' + query;
+                }
+                window.location.href = url;
+            });
+            //回车搜索
+            $(".search-input").keyup(function(e){
+                if(e.keyCode === 13){
+                    $("#search").click();
+                    return false;
+                }
+            });
+        });
+   </script>
+</block>

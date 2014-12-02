@@ -1,0 +1,62 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>厂家信息</h2>
+
+    </div>
+    <div class="tools">
+    	<a class="btn" href="{:U('Product/addFactory')}">新 增</a>
+    </div>
+
+    <!-- 数据列表 -->
+    <div class="data-table">
+        <div class="data-table table-striped">
+    <table class="">
+    <thead>
+        <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>编号</th>
+        <th>厂家名称</th>
+        <th>联系人</th>
+        <th>电话</th>
+        <th>汇款账号</th>
+        <th>排序</th>
+        <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <notempty name="list">
+        <volist name="list" id="vo">
+        <tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.factory_id}" /></td>
+            <td>{$vo.factory_id} </td>
+            <td>{$vo.factory_name}</td>
+            <td>{$vo.factory_linkman}</td>
+            <td>{$vo.factory_phone}</td>
+            <td>{$vo.factory_account}</td>
+            <td>{$vo.factory_sort}</td>
+            <td>
+                <a href="{:U('Product/editFactory?id='.$vo['factory_id'])}" title="Edit">修改</a>
+
+                <a href="{:U('Product/deleteFactory?id='.$vo['factory_id'])}" title="Delete">删除</a> 
+            </td>
+        </tr>
+        </volist>
+        <else/>
+        <td colspan="7" class="text-center"> aOh! 暂时还没有内容! </td>
+        </notempty>
+    </tbody>
+    </table>
+
+        </div>
+    </div>
+    <div class="page">
+        {$page}
+    </div>
+</block>
+
+<block name="script">
+   
+</block>

@@ -1,0 +1,294 @@
+<extend name="Public/base" />
+
+<block name="body">
+    <div class="main-title cf">
+        <h2>修改产品</h2>
+    </div>
+
+    <!-- 标签页导航 -->
+    <div class="tab-wrap">
+        <div class="tab-content">
+            <!-- 表单 -->
+            <form id="form" action="{:U('')}" method="post" enctype="multipart/form-data" class="form-horizontal doc-modal-form">
+                <!-- 基础 -->
+                <div id="tab1" class="tab-pane in tab1">
+                    <div class="form-item cf">
+                        <label class="item-label">产品名称</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="name" value="{$pro['name']}">
+                        </div>
+                    </div>
+                   <div class="form-item cf">
+                        <label class="item-label">产品编号</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="number" value="{$pro['number']}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">产品价格（推荐价格）</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="price" value="{$pro['price']}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">进货价格</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="base_price" value="{$pro['base_price']}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">样本规格</label>
+                        <div class="controls">
+                                                                        规格
+                            <select name="size">
+                                <volist name="standard" id="vo">
+                                    <if condition="$vo.id eq $pro['size']">
+                                        <option value="{$vo.id}" checked>{$vo.name}</option>
+                                    <else /><option value="{$vo.id}">{$vo.name}</option>
+                                    </if>
+                                </volist>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">单位</label>
+                        <div class="controls">
+                                                                        单位
+                            <select name="unit">
+                                <volist name="unit" id="vo">
+                                    <if condition="$vo.id eq $pro['unit']">
+                                        <option value="{$vo.id}" checked>{$vo.name}</option>
+                                    <else /><option value="{$vo.id}">{$vo.name}</option>
+                                    </if>
+                                </volist>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">厂家信息</label>
+                        <div class="controls">
+                                                                        厂家
+                            <select name="factory">
+                                <volist name="factory" id="vo">
+                                    <if condition="$vo.factory_id eq $pro['factory']">
+                                        <option value="{$vo.factory_id}" checked>{$vo.factory_name}</option>
+                                    <else /><option value="{$vo.id}">{$vo.name}</option>
+                                    </if>
+                                </volist>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- ------ -->
+                    
+                    <div class="form-item cf">
+                        <label class="item-label">选择风格</label>
+                        <div class="controls">
+                                                                                    风格
+                            <select name="style_id" id="group2">
+                                <volist name="group2" id="vo">
+                                    <if condition="$vo.id eq $pro['style_id']">
+                                        <option value="{$vo.id}" checked>{$vo.name}</option>
+                                        <else /><option value="{$vo.id}">{$vo.name}</option>
+                                    </if>
+                                </volist>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="form-item cf">
+                        <label class="item-label">选择材质</label>
+                        <div class="controls">
+                                                                                         材质
+                              <select name="material_id" id="group3">
+                                <volist name="group3" id="vo">
+                                    <if condition="$vo.id eq $pro['material_id']">
+                                        <option value="{$vo.id}" checked>{$vo.name}</option>
+                                        <else /><option value="{$vo.id}">{$vo.name}</option>
+                                    </if>
+                                </volist>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">选择产地</label>
+                        <div class="controls">
+                                                                                      产地
+                              <select name="origin_id" id="group5">
+                                <volist name="group5" id="vo">
+                                    <if condition="$vo.id eq $pro['origin_id']">
+                                        <option value="{$vo.id}" checked>{$vo.name}</option>
+                                        <else /><option value="{$vo.id}">{$vo.name}</option>
+                                    </if>
+                                </volist>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- ----------------- -->
+                    <div class="form-item cf">
+                        <label class="item-label">显示图片（191x145）</label>
+                        <div class="controls">
+                            <img src="__ROOT__/Uploads/Images/{$pro['image2']}" style="height: 50px; width:50px;margin-right:10px ">
+                            <input type="file" class="file input-large" name="image2" value="">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">显示图片（800x521）</label>
+                        <div class="controls">
+                            <img src="__ROOT__/Uploads/Images/{$pro['image3']}" style="height: 50px; width:50px;margin-right:10px ">
+                            <input type="file" class="file input-large" name="image3" value="">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">排序（数字越大越靠前）</label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="sort" value="1">
+                        </div>
+                    </div>
+                     <div class="form-item cf">
+                        <label class="item-label">选择品牌-系列-户型</label>
+                        <div class="controls">
+                                                                                        品牌
+                            <select id="group1">
+                                <volist name="group1" id="vo">
+                                    <option value="{$vo.id}">{$vo.name}</option>
+                                </volist>
+                            </select>
+                                                                                           系列
+                              <select name="brand_id" id="group11">
+                                <volist name="group11" id="vo">
+                                    <if condition="$vo.id eq $pro['brand_id']">
+                                        <option value="{$vo.id}" checked>{$vo.name}</option>
+                                        <else/><option value="{$vo.id}">{$vo.name}</option>
+                                    </if>
+                                </volist>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        
+                    </div>
+                    <volist name="diy" id="do">
+                        <div class="form-item cf">
+                            <div style="float:left;width:120px;margin-top:30px">
+                                                                                           户型
+                                  <select id="doormodel" name="doormodel_id">
+                                    <volist name="doormodel" id="vo">
+                                        <option value="{$vo.id}">{$vo.name}</option>
+                                    </volist>
+                                </select>
+                            </div>
+                            <!-- <img src="__ROOT__/Uploads/Images/{$vo.image4}" style="height: 50px; width:50px;margin-top:20px;float:left "/> -->
+                            <div style="float:left;width:220px;margin-top:15px;margin-left:50px">
+                                <label class="item-label">DIY缩略图片</label>
+                                <div class="controls">
+                                    <input type="file" class="file input-large" name="image2" value="">
+                                </div>
+                            </div>
+                            <img src="__ROOT__/Uploads/Images/{$do.image4}" style="height: 50px; width:50px;margin-top:20px;float:left "/>
+                            <div style="float:left;width:220px;margin-top:15px;margin-left:50px">
+                                <label class="item-label">DIY中间大图片</label>
+                                <div class="controls">
+                                    <input type="file" class="file input-large" name="image5" value="">
+                                </div>
+                            </div>
+                            <img src="__ROOT__/Uploads/Images/{$do.image5}" style="height: 50px; width:50px;margin-top:20px;float:left "/>
+
+                            <a class="btn" href="{:U('Product/deldiy?id='.$do['id'].'&pro_id='.$do['pro_id'])}" style="margin-top:30px;margin-left:60px">删除</a> 
+                            <!-- <input type="hidden" class="deldiy_id" value="{$do.pro_id}"/> -->
+                        </div>
+                    </volist>
+                    <div class="form-item cf">
+                        <a href="{:U('Product/adddiy?id='.$pro['id'])}"><img src="__PUBLIC__/add.jpg" style="height: 20px; width:20px;margin-top:20px;float:left;margin-right:10px "/><span style="display:block;margin-top:20px;margin-left:10px">添加DIY</span></a>
+                    </div>
+                </div>
+
+                <!-- 按钮 -->
+                <div class="form-item cf">
+                    <label class="item-label"></label>
+                    <div class="controls edit_sort_btn">
+                        <input type="hidden" name="id" value="{$pro['id']}">
+                        <button class="btn submit-btn" type="submit" target-form="form-horizontal">确 定</button>
+                        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</block>
+<block name="script">
+
+<script type="text/javascript" charset="utf-8">
+    //导航高亮
+    highlight_subnav('{:U('store/add')}');
+
+
+
+     //分类联动
+         $(document).ready(function() {
+             
+             var group1=$("#group1");   
+             group1.change(function(){
+                 var check_id1=group1.val(); //获取Select选择的Value 
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                    $("#group11").html(data);
+                 });       
+             });
+
+         /*    $(".deldiy").click(function(){
+               // alert($(".deldiy_id").val());
+             });*/
+             //根据样本选择户型
+            /* var group11=$("#group11");   
+             group11.change(function(){
+                 var check_id11=group11.val(); //获取Select选择的Value 
+                 $.get("__URL__/change_doormodel/id/"+check_id11,function(data,status){
+                    $("#doormodel").html(data);
+                 });       
+             });*/
+
+            /* var group2=$("#group2");   
+             group2.change(function(){
+                 var check_id1=group2.val(); //获取Select选择的Value 
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                    $("#group51").html(data);
+                 });       
+             });
+
+             var group3=$("#group3");   
+             group3.change(function(){
+                 var check_id1=group3.val(); //获取Select选择的Value 
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                    $("#group31").html(data);
+                 });       
+             });
+
+             var group4=$("#group4");   
+             group4.change(function(){
+                 var check_id1=group4.val(); //获取Select选择的Value 
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                    $("#group41").html(data);
+                 });       
+             });
+
+             var group5=$("#group5");   
+             group5.change(function(){
+                 var check_id1=group5.val(); //获取Select选择的Value 
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                    $("#group51").html(data);
+                 });       
+             });
+
+             var group6=$("#group6");   
+             group6.change(function(){
+                 var check_id1=group6.val(); //获取Select选择的Value 
+                 $.get("__URL__/change/id/"+check_id1,function(data,status){
+                    $("#group61").html(data);
+                 });       
+             });*/
+             
+         });
+
+
+</script>
+</block>
+
+

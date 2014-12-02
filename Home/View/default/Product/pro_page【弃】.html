@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店内商品-酷乐虎壁纸系统</title>
+<meta name="keywords" content="酷乐虎壁纸系统">
+<meta name="description" content="酷乐虎壁纸系统">
+<meta name="author" content="酷乐虎壁纸系统"/>
+<meta name="copyright" content="酷乐虎壁纸系统"/>
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__HOME_PUBLIC__/skin/css/style.css">
+<script src="__HOME_PUBLIC__/skin/js/jquery-1.10.1.min.js"></script>
+<script src="__HOME_PUBLIC__/skin/js/jquery-migrate-1.2.1.min.js"></script>
+
+
+<link rel="stylesheet" href="__HOME_PUBLIC__/skin/css/idangerous.swiper.css"><!-- 划屏 -->
+<link rel="stylesheet" href="__HOME_PUBLIC__/skin/css/idangerous.swiper.scrollbar.css"><!-- 划屏滚动条 -->
+<script src="__HOME_PUBLIC__/skin/js/idangerous.swiper-2.0.min.js"></script><!-- 划屏 -->
+<script src="__HOME_PUBLIC__/skin/js/idangerous.swiper.scrollbar-2.0.js"></script><!-- 划屏滚动条 -->
+<SCRIPT language=javascript> 
+<!-- 
+window.onerror=function(){return true;} 
+// --> 
+</SCRIPT> 
+
+<script>
+$(function(){
+	$("#menu ul").animate({top: 0}, 1000);
+});
+</script>
+
+<!-- 产品滑动 -->
+<script type="text/javascript" src="__HOME_PUBLIC__/skin/js/jquery.promptu-menu.js"></script>
+
+<script type="text/javascript"> 
+$(document).ready(function() 
+{
+	if($(window).width()>1420){
+		$(function(){
+		eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('$(\'7.6-9\').8({1:0,4:2,e:3,f:5,a:\'b\',c:d});',21,21,'1400|width|740||height||promptu|ul|promptumenu|menu4|direction|vertical|pages|false|rows|columns'.split('|'),0,{}))
+	});
+	}else  if($(window).width()>1025 && $(window).width()<1420){
+		$(function(){
+		eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('$(\'7.6-9\').8({1:0,4:2,e:3,f:5,a:\'b\',c:d});',21,21,'1160|width|760||height||promptu|ul|promptumenu|menu4|direction|vertical|pages|false|rows|columns'.split('|'),0,{}))
+	});
+	}else  if($(window).width()<=1024){
+		$(function(){
+		eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('$(\'7.6-9\').8({1:0,4:2,e:3,f:5,a:\'b\',c:d});',21,21,'980|width|510||height||promptu|ul|promptumenu|menu4|direction|vertical|pages|false|rows|columns'.split('|'),0,{}))
+	});
+	}
+} 
+) 
+</script>
+
+
+</head>
+
+<body>
+<div class="in_wrapper">
+	
+    <include file="nav" />
+    <!--/top-->
+    
+    <div class="tip tip_t">
+    <div class="tip_l">当前位置：产品中心-{$group1['name']}-{$group2['name']}-{$group3['name']}</div>
+    <div class="tip_r">
+      <form action="{:U('Product/search')}" method="post">
+            <input class="txt" name="name" type="text" placeholder="产品搜索" />
+            <input type="submit" class="btn_ss22" href="search.html">
+            <input type="submit" class="btn_ss2" href="gsearch.html"></div>
+     </form>
+    <div class="clear"></div>
+    </div>
+  	<!--/tip-->
+
+    <div class="content" style="padding:10px 0; height:548px; width:1000px;">
+   
+   
+    <div class=" fl" style="margin:42px 0 0 56px;">
+    <img src="__ROOT__/Uploads/Images/{$pro.image3}" width="413" height="413" style="display:block; border:#858585 solid 4px;" />
+    
+    </div>
+    <div class="pro_r fr" style="width:338px; height:419px; border:#363636 solid 1px; margin:42px 58px 0 0;">
+    <div style="padding:30px; height:233px;">
+    	<div class="pro_wz"><b>品牌：</b>{$pro.brand_id|cate}</div>
+        <div class="pro_wz"><b>产地：</b>{$pro.origin_id|cate}</div>
+        <div class="pro_wz"><b>名称：</b>{$pro.name}</div>
+        <div class="pro_wz"><b>材质：</b>{$pro.material_id|cate}</div>
+        <div class="pro_wz"><b>编号：</b>{$pro.number}</div>
+        <div class="pro_wz"><b>规格：</b>{$pro.size}</div>
+        <div class="pro_wz1"><b>单价：</b>{$pro.price}</div>
+    </div>
+    <div class="fl" style="margin:0 0 30px 30px;"><a href="#" onclick="orders()"><img src="__HOME_PUBLIC__/images/btn_ddtj.png" /></a></div><!-- 下单 -->
+    <div class="fr" style="margin:0 30px 30px 0; border-radius:16px; width:135px; height:33px; background:#6791bb; position:relative;">
+    
+    <a href="#" style=" left:9px; top:5px; position:absolute;"><img src="__HOME_PUBLIC__/images/ico_jian.jpg" /></a>
+    <input name="count" id="count" type="text" style=" width:48px; height:23px; border:0; background:#212121; left:44px; top:5px; position:absolute; text-align:center; line-height:23px; color:#bcbcbc;" value="1" />
+    <a href="#" style=" left:103px; top:5px; position:absolute;"><img src="__HOME_PUBLIC__/images/ico_jia.jpg" /></a>
+    
+    </div>
+    <div class="clear"></div>
+    <div class="fl"><a href="{:U('Product/dbdiy?id='.$pro['id'].'&group3_id='.$group3['id'])}"><img src="__HOME_PUBLIC__/images/btj_xgys.png" /></a></div>
+    <!-- 修改 -->
+    <div class="fr"><a href="{:U('Product/pro_xg?id='.$pro['id'].'&group3_id='.$group3['id'])}"><img src="__HOME_PUBLIC__/images/btn_cpxg.png" /></a></div>
+    <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <!--/product--> 
+  </div>
+  <!--content-->
+  <div class="h45"></div>
+</div>
+
+<script type="text/javascript">
+function orders(){
+    var count = $("#count").val();
+    var url = "__URL__/pro_ddtj/id/"+{$pro.id}+"/count/" + count;
+	window.location.href = url;
+}
+</script>
+</body>
+</html>

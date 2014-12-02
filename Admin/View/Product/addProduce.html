@@ -1,0 +1,212 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>添加批发产品</h2>
+    </div>
+    <div class="tools">
+        <a class="btn alladdProduce" href="javascript:void(0)">确认添加</a>
+        <a class="btn manyeditPrice" href="javascript:void(0)">修改批发价</a>
+        
+    </div>
+
+    <!-- 数据列表 -->
+    <div class="data-table">
+        <div class="data-table table-striped">
+    <table class="">
+    <thead>
+        <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>名称</th>
+        <th>产品编号</th>
+        <th>进货价</th><!-- 上一级代理价 -->
+        <th>批发价</th><!-- 代理价 -->
+        <if condition="$user_id eq 1">
+            <th>建议零售价</th>
+            <else/>
+            <th>零售价</th>
+        </if>
+        
+        <th>规格</th>
+        <th>品牌</th>
+        <th>游览图片（190x144）</th>
+        <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <notempty name="list">
+        <volist name="list" id="vo">
+        <tr class="tr">
+            <if condition="$UID eq 1">
+                <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}" /></td>
+                <td>{$vo.name}</td>
+                <td>{$vo.number}</td>
+                <td>{$vo.base_price}</td>
+                <td>{$vo.daili_price}</td>
+                <td>{$vo.price}</td>
+                <td>{$vo.size}</td>
+                <td>{$vo.brand_id|get_brand}</td>
+                <td><img src="__ROOT__/Uploads/Images/{$vo.image1}" style="height: 50px;"></td>
+            <else/>
+                <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}" /></td>
+                <td>{$vo.produce_id|get_product_name}</td>
+                <td>{$vo.produce_id|get_product_number}</td>
+                <td>{$vo.in_price}</td>
+                <td>{$vo.daili_price}</td>
+                <td>{$vo.price}</td>
+                <td>{$vo.produce_id|get_product_size}</td>
+                <td>{$vo.brand_id|get_brand}</td>
+                <td><img src="__ROOT__/Uploads/Images/{$vo.image1}" style="height: 50px;"></td>
+            </if>
+            
+            <td>
+                <a class="btn addProduce" href="javascript:void(0)">添加</a> 
+                <a class="btn editdailiPrice" href="javascript:void(0)">修改批发价</a>
+            </td>
+        </tr>
+        </volist>
+        <else/>
+        <td colspan="7" class="text-center"> aOh! 暂时还没有内容! </td>
+        </notempty>
+    </tbody>
+    </table>
+
+        </div>
+    </div>
+    <div class="page">
+        {$page}
+    </div>
+    <input type="hidden" id="uid" value="{$uid}"/>
+</block>
+
+<block name="script">
+   <script type="text/javascript">
+        $(function(){
+            //单项修改批发价
+            $(".editdailiPrice").click(function(){
+                var produce_id = $(this).closest("tr").children("td").eq(0).find(".ids").val();
+                var tr = $(this).closest("tr").children("td").eq(4);
+                var price = prompt("请输入批发价格");
+                if(price){
+                    $.post(
+                        "__URL__/editPrice",
+                        {daili_price:price,produce_id:produce_id},
+                        function(data){
+                               if (data=='a') {
+                                    alert("修改成功");
+                                    tr.html(price);
+                                }else{
+                                    alert("修改失败");
+                                }; 
+                        }
+                    );
+                }else{
+                     alert('抱歉，您没有输入批发价格');
+                }
+                
+            });
+            //修改批发价
+            $(".manyeditPrice").click(function(){
+                var count = 0
+                var arr_id = new Array();
+                for(var i=0;i<$('.tr').length;i++){
+                    if($('.ids').eq(i).is(':checked'))
+                    {
+                        var id = $('.ids').eq(i).val();
+                        arr_id[count++]=id;
+                    }
+                }
+                if (arr_id.length!=0) {
+                    var price = prompt("请输入批发价格");
+                    if (price) {
+                        $.post(
+                            "__URL__/manyeditPrice",
+                            {arr_id:arr_id,price:price},
+                            function(data){
+                                if (data=='a') {
+                                    alert("修改成功");
+                                    window.location.reload();
+                                }else{
+                                    alert("修改失败");
+                                };
+                                
+                            }
+                        );
+                    }else{
+                        alert('抱歉，您没有输入批发价格');
+                    }; 
+                }else{
+                    alert("请选中需要修改的选项");
+                };
+            });
+            
+            //添加
+            $(".addProduce").click(function(){
+                var uid = $("#uid").val();
+                var produce_id = $(this).closest("tr").children("td").eq(0).find(".ids").val();
+                var in_price = $(this).closest("tr").children("td").eq(3).html();
+                var daili_price = $(this).closest("tr").children("td").eq(4).html();
+                var price = $(this).closest("tr").children("td").eq(5).html();
+                $.post(
+                    "__URL__/addpro",
+                    {uid:uid,produce_id:produce_id,in_price:in_price,daili_price:daili_price,price:price},
+                    function(data){
+                        if(data=="a"){
+                            alert("添加成功");
+                        }else if (data=="c"){
+                            alert("此产品已添加过了");
+                        }else{
+                            alert("添加失败");
+                        }
+                    }
+                );
+            });
+
+            //批量添加
+            $(".alladdProduce").click(function(){
+                var uid = $("#uid").val();
+                var arr_id = new Array(new Array); 
+                var row = 0;
+                var n = 0;
+                for(var i=0;i<$('.tr').length;i++){
+                    if($('.ids').eq(i).is(':checked'))
+                    {
+                        n++;
+                        var produce_id = $('.ids').eq(i).val();
+                        var in_price = $(".tr").eq(i).children("td").eq(3).html();
+                        var daili_price = $(".tr").eq(i).children("td").eq(4).html();
+                        var price = $(".tr").eq(i).children("td").eq(5).html();
+                        arr_id[i] = new Array();    //js定义二位数组
+                        var count = 0;
+                        arr_id[row][count++]=produce_id;
+                        arr_id[row][count++]=in_price;
+                        arr_id[row][count++]=daili_price;
+                        arr_id[row][count++]=price;
+                        row++;
+                    }
+
+                }
+                if (arr_id.length!=0) { 
+                    $.post(
+                        "__URL__/alladdpro",
+                        {
+                            arr_id:JSON.stringify(arr_id),  ///异步传输二维数组
+                            uid:uid,
+                            n:n
+                        },
+                        function(data){
+                            if (data=='a') {
+                                alert("添加成功");
+                            }else{
+                                alert("添加失败");
+                            };
+                        }
+                    );
+                }else{
+                    alert("请选中需要添加的产品");
+                };
+            });
+        });
+   </script>
+</block>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店内商品-酷乐虎壁纸系统</title>
+<meta name="keywords" content="酷乐虎壁纸系统">
+<meta name="description" content="酷乐虎壁纸系统">
+<meta name="author" content="酷乐虎壁纸系统"/>
+<meta name="copyright" content="酷乐虎壁纸系统"/>
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__HOME_PUBLIC__/skin//css/style.css">
+<script src="__HOME_PUBLIC__/skin//js/jquery-1.10.1.min.js"></script>
+<script src="__HOME_PUBLIC__/skin//js/jquery-migrate-1.2.1.min.js"></script>
+<link rel="stylesheet" href="__HOME_PUBLIC__/skin//css/idangerous.swiper.css">
+<!-- 划屏 -->
+<link rel="stylesheet" href="__HOME_PUBLIC__/skin//css/idangerous.swiper.scrollbar.css">
+<!-- 划屏滚动条 -->
+<script src="__HOME_PUBLIC__/skin//js/idangerous.swiper-2.0.min.js"></script><!-- 划屏 -->
+<script src="__HOME_PUBLIC__/skin//js/idangerous.swiper.scrollbar-2.0.js"></script><!-- 划屏滚动条 -->
+
+<script>
+$(function(){
+	$("#menu ul").animate({top: 0}, 1000);
+});
+</script>
+
+<!-- 产品滑动 -->
+
+</head>
+
+<body>
+<div class="in_wrapper">
+  <div id="menu">
+    <ul>
+        <li><a href="{:U('Store/index')}" class="menu_a1 ">店内商品</a></li>
+        <li><a href="{:U('Public/login')}" class="menu_a2 ">用户登录</a></li>
+        <li><a href="{:U('News/index')}" class="menu_a3 ">信息中心</a></li>
+        <li><a href="{:U('Product/index')}" class="menu_a4 ">产品中心</a></li>
+    </ul>
+  </div>
+  <!--/menu-->
+  <form action="{:U('')}" method="post" >
+  <div class="login">
+    <table cellpadding="0" cellspacing="3" align="center">
+      <tr>
+        <td>账户：</td>
+        <td><input class="txt" name="username" type="text" /></td>
+      </tr>
+      <tr>
+        <td>密码：</td>
+        <td><input class="txt" name="password" type="password" /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td align="center">
+        <input class="btn_1 fl" name="" type="submit" value="" />
+        <a class="btn_2 fr"></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  </form>
+  <!--/login-->
+  <div class="h45"></div>
+</div>
+</body>
+</html>

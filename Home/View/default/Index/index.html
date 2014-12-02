@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<title>酷乐虎壁纸系统</title>
+<meta name="keywords" content="酷乐虎壁纸系统" />
+<meta name="description" content="酷乐虎壁纸系统" />
+<meta name="robots" content="all" />
+<meta name="author" content="酷乐虎壁纸系统" />
+<meta name="Classification" content="酷乐虎壁纸系统" />
+<meta name="Copyright" content="酷乐虎网络 CopyRight 2014" />
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__HOME_PUBLIC__/themes/css/style.css">
+
+<script src="__HOME_PUBLIC__/themes/js/jquery-1.10.1.min.js"></script>
+<script src="__HOME_PUBLIC__/themes/js/jquery-migrate-1.2.1.min.js"></script>
+
+<link rel="stylesheet" href="__HOME_PUBLIC__/themes/css/idangerous.swiper.css"><!-- 划屏 -->
+<link rel="stylesheet" href="__HOME_PUBLIC__/themes/css/idangerous.swiper.scrollbar.css"><!-- 划屏滚动条 -->
+<script src="__HOME_PUBLIC__/themes/js/idangerous.swiper-2.0.min.js"></script><!-- 划屏 -->
+<script src="__HOME_PUBLIC__/themes/js/idangerous.swiper.scrollbar-2.0.js"></script><!-- 划屏滚动条 -->
+
+<script>
+$(function(){
+	$("#menu ul").animate({top: -10}, 1000);
+});
+</script>
+
+<!--[if lte IE 6]>
+<script type="text/javascript" src="themes/js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+    DD_belatedPNG.fix('body *');
+</script>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script src="themes/js/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div class="in_wrapper">
+
+	<div id="menu">
+    	<ul>
+        	<li><a href="javascript:void(0)}" class="menu_a1 ">店内商品</a></li>
+            <li><a href="{:U('Public/login')}" class="menu_a2 ">用户登录</a></li>
+            <li><a href="{:U('News/index')}" class="menu_a3 ">信息中心</a></li>
+            <li><a href="{:U('Product/product')}" class="menu_a4 ">产品中心</a></li>
+        </ul>
+    </div>
+    <!--/menu-->
+    
+    <div class="device">
+		<a class="arrow-left" href="#"></a>
+		<a class="arrow-right" href="#"></a>
+		<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide"><img src="__HOME_PUBLIC__/images/ban1.jpg"></div>
+      <div class="swiper-slide"><img src="__HOME_PUBLIC__/images/ban2.jpg"></div>
+      <div class="swiper-slide"><img src="__HOME_PUBLIC__/images/ban3.jpg"></div>
+      <div class="swiper-slide"><img src="__HOME_PUBLIC__/images/ban1.jpg"></div>
+      <div class="swiper-slide"><img src="__HOME_PUBLIC__/images/ban2.jpg"></div>
+      <div class="swiper-slide"><img src="__HOME_PUBLIC__/images/ban3.jpg"></div>
+		</div>
+		</div>
+	<div class="pagination"></div>
+	</div>
+    <script>
+  	var mySwiper = new Swiper('.swiper-container',{
+    pagination: '.pagination',
+    loop:true,
+    grabCursor: true,
+    paginationClickable: true,
+	autoplay:5000
+  	})
+  	$('.arrow-left').on('click', function(e){
+    e.preventDefault()
+    mySwiper.swipePrev()
+  	})
+  	$('.arrow-right').on('click', function(e){
+    e.preventDefault()
+    mySwiper.swipeNext()
+  	})
+	</script>
+    <!--/banner-->
+    
+</div>
+<script type="text/javascript" src="__HOME_PUBLIC__/themes/js/lanrenzhijia.js"></script>
+<div class="PathInner" id="PathMenu" style="position:fixed; left:20px; bottom:20px;">
+  <div class="PathMain">
+    <div class="Tmain" onclick="PathRun();">
+      <div class="rotate"><span class="cover"></span></div>
+    </div>
+  </div>
+  <div class="PathItem">
+   <a class="link" href="{:U('Product/product')}" title="产品中心"> 
+    <span class="item" style="background-image:url(__HOME_PUBLIC__/images/moment_icn_pic.png);"></span>
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/huodong')}" title="优惠活动"> 
+    <span class="item" style="background-image:url(__HOME_PUBLIC__/images/moment_icn_info.png);"></span> 
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/search')}" title="高级搜索"> 
+    <span class="item" style="background-image: url(__HOME_PUBLIC__/images/moment_icn_address.png);"></span> 
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/shop_cart')}" title="我的购物车"> 
+    <span class="item" style="background-image: url(__HOME_PUBLIC__/images/moment_icn_price.png);"></span> 
+   </a>
+  </div>
+</div>
+</body>
+</html>

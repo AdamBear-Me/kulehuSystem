@@ -1,0 +1,113 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>编辑用户样本</h2>
+    </div>
+    <div class="tools">
+    	<a class="btn alldelSample" href="javascript:void(0)">删除样本</a>
+        <!-- <a class="btn manyeditPrice" href="{:U('Product/addProduce?id='.$vo['id'])}">添加批发产品</a> -->
+    </div>
+
+    <!-- 数据列表 -->
+    <div class="data-table">
+        <div class="data-table table-striped">
+    <table class="">
+    <thead>
+        <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>样品名称</th>
+        <th>品牌</th>
+        <th>游览图片（190x144）</th>
+        <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <notempty name="list">
+        <volist name="list" id="vo">
+        <tr class="tr" id="{$vo.brand_id}">
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.brand_id}" /></td>
+            <td>{$vo.brand_id|brand}</td>
+            <td>{$vo.brand_id|get_brand}</td>
+            <td><img src="__ROOT__/Uploads/Images/{$vo.image1}" style="height: 50px;"></td>
+            <td>
+                <a class="delSample" href="javascript:void(0)">删除</a>
+                <a href="{:U('Product/editProduce?uid='.$uid.'&brand_id='.$vo['brand_id'])}" >编辑产品</a> 
+            </td>
+        </tr>
+        </volist>
+        <else/>
+        <td colspan="7" class="text-center"> aOh! 暂时还没有内容! </td>
+        </notempty>
+    </tbody>
+    </table>
+
+        </div>
+    </div>
+    <div class="page">
+        {$page}
+    </div>
+    <input type="hidden" id="uid" value="{$uid}"/>
+</block>
+
+<block name="script">
+   <script type="text/javascript">
+        $(function(){
+            //单项删除样本
+            $(".delSample").click(function(){
+                var uid = $("#uid").val();
+                var brand_id = $(this).closest("tr").children("td").eq(0).find(".ids").val();
+                var tr = $(this).closest("tr");
+                $.post(
+                    "__URL__/delSample",
+                    {uid:uid,brand_id:brand_id},
+                    function(data){
+                        if (data=='a') {
+                            tr.remove();
+                            alert("样本删除成功");
+                        }else{
+                            alert("样本删除失败");
+                        };
+                    }
+                );
+            });
+
+            //批量删除样本
+            $(".alldelSample").click(function(){
+                var uid = $("#uid").val();
+                var arr_id = new Array(); 
+                var count = 0;
+                for(var i=0;i<$('.tr').length;i++){
+                    if($('.ids').eq(i).is(':checked'))
+                    {
+                        var id = $('.ids').eq(i).val();
+                        arr_id[count++]=id;
+                    }
+
+                }
+                if (arr_id.length!=0) { 
+                    $.post(
+                        "__URL__/alldelSample",
+                        {
+                            arr_id:arr_id,
+                            uid:uid
+                        },
+                        function(data){
+                            if (data=='a') {
+                            	for(var i=0; i<arr_id.length;i++){
+									$("tr[id="+arr_id[i]+"]").hide();
+								}
+                                alert("样本删除成功");
+                            }else{
+                                alert("样本删除失败");
+                            };
+                        }
+                    );
+                }else{
+                    alert("请选中需要删除的样本");
+                };
+            });
+        })
+   </script>
+</block>

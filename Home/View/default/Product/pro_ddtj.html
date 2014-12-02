@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店内商品-酷乐虎壁纸系统</title>
+<meta name="keywords" content="酷乐虎壁纸系统">
+<meta name="description" content="酷乐虎壁纸系统">
+<meta name="author" content="酷乐虎壁纸系统"/>
+<meta name="copyright" content="酷乐虎壁纸系统"/>
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__HOME_PUBLIC__/skin/css/style.css">
+<script src="__HOME_PUBLIC__/skin/js/jquery-1.10.1.min.js"></script>
+<script src="__HOME_PUBLIC__/skin/js/jquery-migrate-1.2.1.min.js"></script>
+
+<link rel="stylesheet" href="__HOME_PUBLIC__/skin/css/idangerous.swiper.css"><!-- 划屏 -->
+<link rel="stylesheet" href="__HOME_PUBLIC__/skin/css/idangerous.swiper.scrollbar.css"><!-- 划屏滚动条 -->
+<script src="__HOME_PUBLIC__/skin/js/idangerous.swiper-2.0.min.js"></script><!-- 划屏 -->
+<script src="__HOME_PUBLIC__/skin/js/idangerous.swiper.scrollbar-2.0.js"></script><!-- 划屏滚动条 -->
+<SCRIPT language=javascript> 
+<!-- 
+window.onerror=function(){return true;} 
+// --> 
+</SCRIPT> 
+
+<script>
+$(function(){
+	$("#menu ul").animate({top: 0}, 1000);
+});
+</script>
+
+<!-- 产品滑动 -->
+<script type="text/javascript" src="__HOME_PUBLIC__/skin/js/jquery.promptu-menu.js"></script>
+
+<script type="text/javascript"> 
+
+</script>
+
+
+</head>
+
+<body>
+<div class="in_wrapper">
+	<include file="nav" />
+    <!--/top-->
+    
+    <div class="tip tip_t">
+    <div class="tip_l">当前位置： <a href="#">产品中心</a> ></div>
+    <div class="tip_r">
+      <form action="{:U('Product/search')}" method="post">
+            <input class="txt" name="name" type="text" placeholder="产品搜索" />
+            <input type="submit" class="btn_ss22" href="search.html">
+            <input type="submit" class="btn_ss2" href="gsearch.html"></div>
+     </form>
+    </div>
+    <div class="clear"></div>
+    </div>
+  	<!--/tip-->
+
+    <div class="content" style="padding:10px 0; height:850px;">
+    
+    <div style="width:850px; height:421px; margin:10% auto 0;">
+    
+    <div style="width:850px; height:280px;">
+    	<div style="float:left; width:200px; height:200px; overflow:hidden;">
+        	<img src="images/img_4.png"  width="200" height="200">
+        </div>
+        <div style="float:left; line-height:40px; margin-left:20px; width:280px;">
+        	<div><span>产品编号：</span>{$pro.number}</div>
+            <div><span>产品名称：</span>{$pro.name}</div>
+            <div><span>订单编号：</span>{$time}{$rand}</div>
+            <div><span>商品数量：</span><b style="color:#F60;">{$count}</b></div>
+            <div><span>下单时间：</span>{$time|date="Y-m-d",###}</div>
+        </div>
+        
+         <form action="{:U('')}" method="post">
+        <div style="float:left; line-height:40px; margin-left:20px; width:280px;">
+                <input type="hidden" name="product_id" value="{$pro.id}">
+                <input type="hidden" name="number" value="{$time}{$rand}">
+                <input type="hidden" name="count" value="{$count}">
+                <input type="hidden" name="price" value="{$pro.price}">
+                <input type="hidden" name="status" value="0">
+            	<div><span style="width:75px; display:inline-block;">收 件 人：</span><input name="recipient" type="text" style="width:200px;"></div>
+                <div><span style="width:75px; display:inline-block;">收货地址：</span><input name="address" type="text" style="width:200px;"></div>
+                <div><span style="width:75px; display:inline-block;">联系电话：</span><input name="phone" type="text" style="width:200px;"></div>
+                <div><span style="width:75px; display:inline-block;">备注信息：</span><textarea name="note" cols="" rows="" style="width:200px; height:70px;"></textarea></div>
+        </div>
+        <div style="clear:both;"></div>
+        <div style="display:block; border-top:1px solid #F93; border-bottom:1px solid #F93; margin:10px 0px; line-height:40px; font-size:16px;">合计金额：<b>{$price}元</b></div>
+        <div style="clear:both;"></div>
+       
+    </div>
+    
+    <div style="width:850px; height:53px; border:#2b2b2b solid 1px; background:#0b0b0b; padding:20px 0px;">
+    <a href="javascript:history.go(-1);" style="width:120px; height:40px; background:#cccc; border:#aaa solid 1px; display:block; border-radius:20px; margin-left:20px; margin-right:50px; float:right; text-align:center; font-size:16px; line-height:40px; color:#CCC">取消返回</a>
+    <input type="submit" value="提交订单" style="width:120px; height:40px; background:#c25215; border:#aaa solid 1px; display:block; border-radius:20px; margin-left:50px; float:right; text-align:center; font-size:16px; line-height:40px; color:#CCC">
+    </div>
+    </div>
+     </form>
+    <!--/product--> 
+  </div>
+  <!--content-->
+  <div class="h45"></div>
+</div>
+
+</body>
+</html>

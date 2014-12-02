@@ -1,0 +1,154 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>添加新样本</h2>
+    </div>
+    <div class="tools">
+    	<a class="btn alladdSample" href="javascript:void(0)">确认添加样本</a>
+        <!-- <a class="btn manyeditPrice" href="{:U('Product/addProduce?id='.$vo['id'])}">添加批发产品</a> -->
+
+        <!-- <div class="search-form fr cf">
+            <div class="sleft">
+                    <input type="text" id="name" name="name" class="search-input" value="{:I('name')}" placeholder="请输入要查找的代理商">
+                    <a class="sch-btn" href="javascript:;" id="search" url="{:U('Product/addSample')}"><i class="btn-search"></i></a>
+            </div>
+        </div> -->
+    </div>
+
+    <!-- 数据列表 -->
+    <div class="data-table">
+        <div class="data-table table-striped">
+    <table class="">
+    <thead>
+        <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>样品名称</th>
+        <th>品牌</th>
+        <th>游览图片（190x144）</th>
+        <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <notempty name="list">
+        <volist name="list" id="vo">
+        <tr class="tr">
+            <if condition="$UID eq 1">
+                    <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}" /></td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.pid|brand}</td>
+                    <td><img src="__ROOT__/Uploads/Images/{$vo.image1}" style="height: 50px;"></td>
+                    <td>
+                        <a class="addSample" href="javascript:void(0)">添加样本</a>
+                        <a href="{:U('Product/addProduce?uid='.$uid.'&id='.$vo['id'])}">添加产品</a> 
+                    </td>
+            <else/>
+                    <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.brand_id}" /></td>
+                    <td>{$vo.brand_id|get_sample_name}</td>
+                    <td>{$vo.brand_id|get_brand}</td>
+                    <td><img src="__ROOT__/Uploads/Images/{$vo.image1}" style="height: 50px;"></td>
+                    <td>
+                        <a class="addSample" href="javascript:void(0)">添加样本</a>
+                        <a href="{:U('Product/addProduce?uid='.$uid.'&id='.$vo['brand_id'])}">添加产品</a> 
+                    </td>
+            </if>
+            
+        </tr>
+        </volist>
+        <else/>
+        <td colspan="7" class="text-center"> aOh! 暂时还没有内容! </td>
+        </notempty>
+    </tbody>
+    </table>
+
+        </div>
+    </div>
+    <div class="page">
+        {$page}
+    </div>
+    <input type="hidden" id="uid" value="{$uid}"/>
+</block>
+
+<block name="script">
+   <script type="text/javascript">
+        $(function(){
+            //搜索功能
+            $("#search").click(function(){
+                var url = $(this).attr('url');
+                var query  = $('.search-form').find('input').serialize();
+                query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+                query = query.replace(/^&/g,'');
+                if( url.indexOf('?')>0 ){
+                    url += '&' + query;
+                }else{
+                    url += '?' + query;
+                }
+                window.location.href = url;
+            });
+            //回车搜索
+            $(".search-input").keyup(function(e){
+                if(e.keyCode === 13){
+                    $("#search").click();
+                    return false;
+                }
+            });
+            
+            //单项批发样本
+            $(".addSample").click(function(){
+                var uid = $("#uid").val();
+                var brand_id = $(this).closest("tr").children("td").eq(0).find(".ids").val();
+                $.post(
+                    "__URL__/addbrand",
+                    {uid:uid,brand_id:brand_id},
+                    function(data){
+                        if (data=='a') {
+                            alert("样本添加成功");
+                        }else if (data =="c") {
+                            alert("该样本下没有可批发产品");
+                        }else{
+                            alert("样本添加失败");
+                        };
+                    }
+                );
+            });
+
+            //批量批发样本
+            $(".alladdSample").click(function(){
+                var uid = $("#uid").val();
+                var arr_id = new Array(); 
+                var count = 0;
+                for(var i=0;i<$('.tr').length;i++){
+                    if($('.ids').eq(i).is(':checked'))
+                    {
+                        var id = $('.ids').eq(i).val();
+                        arr_id[count++]=id;
+                    }
+
+                }
+                //confirm(arr_id.length);
+                if (arr_id.length!=0) { 
+                    $.post(
+                        "__URL__/alladdbrand",
+                        {
+                            arr_id:arr_id,
+                            uid:uid
+                        },
+                        function(data){
+                            //confirm(data);
+                            if (data=='a') {
+                                alert("样本添加成功");
+                            }else if (data =="c") {
+                                alert("该样本下没有可批发产品");
+                            }else{
+                                alert("样本添加失败");
+                            };
+                        }
+                    );
+                }else{
+                    alert("请选中需要添加的样本");
+                };
+            });
+        })
+   </script>
+</block>

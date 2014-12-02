@@ -1,0 +1,53 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>大分类列表</h2>
+
+    </div>
+    
+
+    <!-- 数据列表 -->
+    <div class="data-table">
+        <div class="data-table table-striped">
+    <table class="">
+    <thead>
+        <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>ID</th>
+        <th>名称</th>
+        <th>排序</th>
+        <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <notempty name="list">
+        <volist name="list" id="vo">
+        <tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}" /></td>
+            <td>{$vo.id} </td>
+            <td><a href="{:U('Product/showGroup2?id='.$vo['id'])}" title="Show">{$vo.name}</a></td>
+            <td>{$vo.sort}</td>
+            <td>
+                 <a href="{:U('Product/showGroup2?id='.$vo['id'])}" title="Show">查看</a>
+                 <a href="{:U('Product/editGroup?id='.$vo['id'])}" title="Edit">修改</a>
+            </td>
+        </tr>
+        </volist>
+        <else/>
+        <td colspan="7" class="text-center"> aOh! 暂时还没有内容! </td>
+        </notempty>
+    </tbody>
+    </table>
+
+        </div>
+    </div>
+    <div class="page">
+        {$page}
+    </div>
+</block>
+
+<block name="script">
+   
+</block>

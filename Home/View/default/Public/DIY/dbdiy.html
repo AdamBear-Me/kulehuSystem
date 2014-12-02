@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onbeforecopy="return false" onmouseup=document.selection.empty() oncopy=document.selection.empty() onselect=document.selection.empty()>
+<head>
+<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+<title>无标题文档</title>
+<link href="Templates/land/html/SSCss/Css.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../../skin/css/style.css">
+<!-- jQuery -->
+<script src="Templates/land/html/Script/jquery.min.js"></script>
+<!-- Png -->
+<link rel="stylesheet" href="images/colorpicker.css" type="text/css" />
+<script type="text/javascript" src="images/colorpicker.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#colorpickerHolder').ColorPicker({flat: true});
+	$('#colorSelector').ColorPicker({
+		color: '#0000ff',
+		onShow: function (colpkr) {
+			$(colpkr).fadeIn(500);
+			return false;
+		},
+		onHide: function (colpkr) {
+			$(colpkr).fadeOut(500);
+			return false;
+		},
+		onChange: function (hsb, hex, rgb) {
+			$('#colorSelector div').css('backgroundColor', '#' + hex);
+			$(".zind4").css('backgroundColor', '#' + hex);
+		}
+	});
+});
+</script>
+<!-- Color -->
+
+<script type="text/javascript" language="javascript" src="Templates/land/html/Script/DD_belatedPNG-min.js"></script>
+<!--[if IE 6]>
+    <SCRIPT src="Templates/land/html/Script/DD_belatedPNG.js" type=text/javascript></SCRIPT>
+	<SCRIPT type=text/javascript>
+	DD_belatedPNG.fix('img, li, div, p, span, a');
+	</SCRIPT>
+    <![endif]-->
+<script>
+$(function(){
+	var ssJson1 = [
+	{showtit:'',showtxt:'名字1',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字1',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'},
+	{showtit:'',showtxt:'名字1',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字1',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'},
+	{showtit:'',showtxt:'名字1',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字1',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'},
+	{showtit:'',showtxt:'名字1',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字1',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson2 = [
+	{showtit:'',showtxt:'名字2',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字2',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson3 = [
+	{showtit:'',showtxt:'名字3',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字3',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson4 = [
+	{showtit:'',showtxt:'名字4',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字4',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson5 = [
+	{showtit:'',showtxt:'名字5',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字5',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson6 = [
+	{showtit:'',showtxt:'名字6',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字6',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson7 = [
+	{showtit:'',showtxt:'名字7',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字7',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson8 = [
+	{showtit:'',showtxt:'名字8',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字8',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson9 = [
+	{showtit:'',showtxt:'名字9',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字9',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson10 = [
+	{showtit:'',showtxt:'名字10',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字10',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson11 = [
+	{showtit:'',showtxt:'名字11',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字11',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson12 = [
+	{showtit:'',showtxt:'名字12',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字12',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	var ssJson13 = [
+	{showtit:'',showtxt:'名字13',smallpic:'upLoad/db/a1.jpg','bigpic':'upLoad/db/1.png'},
+	{showtit:'',showtxt:'名字13',smallpic:'upLoad/db/a2.jpg','bigpic':'upLoad/db/2.png'}
+	];
+	//地板
+	
+	var ssJson14 = [
+		{showtit:'',showtxt:'名字14',smallpic:'upLoad/hqb/a0.jpg','bigpic':'upLoad/hqb/0.png'},
+		{showtit:'',showtxt:'名字14',smallpic:'upLoad/hqb/a1.jpg','bigpic':'upLoad/hqb/1.png'},
+		{showtit:'',showtxt:'名字14',smallpic:'upLoad/hqb/a2.jpg','bigpic':'upLoad/hqb/2.png'},
+		{showtit:'',showtxt:'名字14',smallpic:'upLoad/hqb/a3.jpg','bigpic':'upLoad/hqb/3.png'},
+		{showtit:'',showtxt:'名字',smallpic:'upLoad/hqb/a4.jpg','bigpic':'upLoad/hqb/4.png'},
+		{showtit:'',showtxt:'名字',smallpic:'upLoad/hqb/a5.jpg','bigpic':'upLoad/hqb/5.png'},
+		{showtit:'',showtxt:'名字',smallpic:'upLoad/hqb/a6.jpg','bigpic':'upLoad/hqb/6.png'},
+		{showtit:'',showtxt:'名字',smallpic:'upLoad/hqb/a7.jpg','bigpic':'upLoad/hqb/7.png'}
+		];
+	//护墙板
+	
+	var ssJson15 = [
+		{showtit:'',showtxt:'名字15',smallpic:'upLoad/wl/a1.jpg','bigpic':'upLoad/wl/1.png'},
+		{showtit:'',showtxt:'名字15',smallpic:'upLoad/wl/a2.jpg','bigpic':'upLoad/wl/2.png'},
+		{showtit:'',showtxt:'名字15',smallpic:'upLoad/wl/a3.jpg','bigpic':'upLoad/wl/3.png'},
+		{showtit:'',showtxt:'名字15',smallpic:'upLoad/wl/a4.jpg','bigpic':'upLoad/wl/4.png'},
+		{showtit:'',showtxt:'名字',smallpic:'upLoad/wl/a5.jpg','bigpic':'upLoad/wl/5.png'},
+		{showtit:'',showtxt:'名字',smallpic:'upLoad/wl/a6.jpg','bigpic':'upLoad/wl/6.png'},
+		{showtit:'',showtxt:'名字',smallpic:'upLoad/wl/a7.jpg','bigpic':'upLoad/wl/7.png'},
+		{showtit:'',showtxt:'名字',smallpic:'upLoad/wl/a8.jpg','bigpic':'upLoad/wl/8.png'},
+		{showtit:'',showtxt:'名字',smallpic:'upLoad/wl/a9.jpg','bigpic':'upLoad/wl/9.png'}
+	];
+	//壁纸纹理
+	
+	if(ssJson1 == ""){$(".doors1").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson1(ssJson1);}
+	if(ssJson2 == ""){$(".doors2").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson2(ssJson2);}
+	if(ssJson3 == ""){$(".doors3").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson3(ssJson3);}
+	if(ssJson4 == ""){$(".doors4").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson4(ssJson4);}
+	if(ssJson5 == ""){$(".doors5").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson5(ssJson5);}
+	if(ssJson6 == ""){$(".doors6").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson6(ssJson6);}
+	if(ssJson7 == ""){$(".doors7").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson7(ssJson7);}
+	if(ssJson8 == ""){$(".doors8").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson8(ssJson8);}
+	if(ssJson9 == ""){$(".doors9").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson9(ssJson9);}
+	if(ssJson10 == ""){$(".doors10").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson10(ssJson10);}
+	if(ssJson11 == ""){$(".doors11").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson11(ssJson11);}
+	if(ssJson12 == ""){$(".doors12").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson12(ssJson12);}
+	if(ssJson13 == ""){$(".doors13").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson13(ssJson13);}
+	if(ssJson14 == ""){$(".doors14").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson14(ssJson14);}
+	if(ssJson15 == ""){$(".doors15").append("<li style=\"text-align:center;\" title=\"暂无资料\">暂无资料</li>");}else{showjson15(ssJson15);}
+	
+	function showjson1(sjson){
+		$.each(sjson,function(i){
+		$(".doors1").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson2(sjson){
+		$.each(sjson,function(i){
+		$(".doors2").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson3(sjson){
+		$.each(sjson,function(i){
+		$(".doors3").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson4(sjson){
+		$.each(sjson,function(i){
+		$(".doors4").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson5(sjson){
+		$.each(sjson,function(i){
+		$(".doors5").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson6(sjson){
+		$.each(sjson,function(i){
+		$(".doors6").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson7(sjson){
+		$.each(sjson,function(i){
+		$(".doors7").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson8(sjson){
+		$.each(sjson,function(i){
+		$(".doors8").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson9(sjson){
+		$.each(sjson,function(i){
+		$(".doors9").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson10(sjson){
+		$.each(sjson,function(i){
+		$(".doors10").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson11(sjson){
+		$.each(sjson,function(i){
+		$(".doors11").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson12(sjson){
+		$.each(sjson,function(i){
+		$(".doors12").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson13(sjson){
+		$.each(sjson,function(i){
+		$(".doors13").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson14(sjson){
+		$.each(sjson,function(i){
+		$(".doors14").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	function showjson15(sjson){
+		$.each(sjson,function(i){
+		$(".doors15").append("<li><div><a href=\"javascript:;\" title=\""+ sjson[i].showtxt +"\"><img src=\""+ sjson[i].smallpic +"\" width=\"158\" height=\"335\" alt=\""+ sjson[i].bigpic +"\" title=\""+ sjson[i].showtxt +"\" /></a></div></li>");
+		});
+	}
+	//循环取json中的地板数据,并呈现在列表中
+	
+});
+
+function bao(v)
+{
+	//alert(v);
+	for(ii = 1; ii<=16; ii++){
+		var doo = 'aaa'+ii;
+		if(ii == v){
+			$('#'+doo).show();
+		} else {
+			$('#'+doo).hide();
+		}
+	}
+}
+
+$(function(){
+	$(".menu_l_list li:last").css({"background":"none"}); 
+	$(".crumbNav em:last").css({"color":"#B10000","padding":"0"}); 
+	$(".brea_tab th:last").css({"border-right":"none"}); 
+	$(".serice_content .serice_list:last").css({"border-bottom":"none"}); 
+})
+//场景切换
+</script>
+<script src="Templates/land/html/Script/Function.js"></script>
+<script type="text/javascript" src="../../common/wap/js/jquery.promptu-menu.js"></script>
+<script type="text/javascript">
+	$(function(){
+		eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('$(\'f.3-d\').4({6:7,0:e,2:5,c:1,b:\'8\',9:a});$(\'.3-h\').4({6:7,0:g,2:5,c:1,b:\'8\',9:a});',18,18,'height||rows|promptu|promptumenu||width|112|vertical|pages|false|direction|columns|menu|410|ul|430|menu1'.split('|'),0,{}))
+	
+	});
+</script>
+</head>
+
+<body>
+<div class="wrap">
+  <div id="top">
+    	<div class="top_m">
+    	<div class="top_l">乔先生您已登录<a hidden="#" class="ico_1">购物车</a><a href="login.html" class="ico_2">用户中心</a></div>
+        <div class="top_menu">
+        	<a class="a1 " href="diannei.html">店内商品</a>
+        	<a class="a2 a2_on" href="news_list.html">信息中心</a>
+        	<a class="a3" href="product.html">产品中心</a>
+        </div>
+        <div class="clear"></div>
+    	<a href="index.html" class="btn_back"></a> </div>
+    </div>
+    <!--/top-->
+  <!--/top-->
+  <div class="h102"></div>
+  <div class="show">
+    <div class="main_left">
+      <div class="doors_wrap">
+        <div class="title">
+          <select name="" onchange="bao(this.value)" class="f_sjtj_input_txt border_radius">
+            <option value="1" selected="selected">同步模压系列</option>
+            <option value="2">同步转印系列</option>
+            <option value="3">仿古拉丝系列</option>
+            <option value="4">长宽板系列</option>
+            <option value="5">高光模压系列</option>
+            <option value="6">亚光模压系列</option>
+            <option value="7">高光倒角系列</option>
+            <option value="8">直角标准系列</option>
+            <option value="9">多层地板</option>
+          </select>
+        </div>
+        <div class="doors_ture  promptu-menu1">
+          <ul class="">
+            <li>
+              <ul class="doors1" id="aaa1" style="display:;">
+                <!-- 图片显示 -->
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+            <li>
+              <ul class="doors2" id="aaa2"  style="display:none;">
+                <!-- 图片显示 -->
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+            <li>
+              <ul class="doors3" id="aaa3"  style="display:none;">
+                <!-- 图片显示 -->
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+            <li>
+              <ul class="doors4" id="aaa4"  style="display:none;">
+                <!-- 图片显示 -->
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+            <li>
+              <ul class="doors5" id="aaa5"  style="display:none;">
+                <!-- 图片显示 -->
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+            <li>
+              <ul class="doors6" id="aaa6"  style="display:none;">
+                <!-- 图片显示 -->
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+            <li>
+              <ul class="doors7" id="aaa7"  style="display:none;">
+                <!-- 图片显示 -->
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+            <li>
+              <ul class="doors8" id="aaa8"  style="display:none;">
+                <!-- 图片显示 -->
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+            <li>
+              <ul class="doors9" id="aaa9"  style="display:none;">
+                <!-- 图片显示 -->
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--main_left-->
+    
+    <div class="item01">
+      <div class="scene">
+        <div id="scene_ture">
+          <ul>
+            <li class="scene2">
+              <div class="zind0"><span class="doorsimg"><img src="upLoad/kuangjia.png" width="800" height="600"/></span></div>
+              <!--主场景-->
+              <div class="zind1"><span class="doorsimg1"><img src="upLoad/hqb/1.png"  width="800" height="600" /></span></div>
+              <!--护墙板-->
+              <div class="zind2"><span class="doorsimg2"><img src="upLoad/db/1.png"  width="800" height="600" /></span></div>
+              <!--地板-->
+              <div class="zind3"><span class="doorsimg3"><img src="upLoad/wl/1.png"  width="800" height="600" /></span></div>
+              <!--壁纸纹-->
+              <div class="zind4" style="background-color:#c5beb6"><span class="doorsimg14"></span></div>
+              <!--壁纸--> 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--场景-->
+    <div class="menucj">
+      <ul class="nav promptu-menu">
+        <li><a href="../dibandiy1/dbdiy.html"  id="nav1" class="dqnav"><img src="Templates/land/html/SSImages/cj1.jpg"/></a></li>
+        <li><a href="../dibandiy2/dbdiy.html"  id="nav2"><img src="Templates/land/html/SSImages/cj2.jpg"/></a></li>
+        <li><a href="../dibandiy3/dbdiy.html"  id="nav3"><img src="Templates/land/html/SSImages/cj3.jpg"/></a></li>
+        <li><a href="../dibandiy2/dbdiy.html"  id="nav2"><img src="Templates/land/html/SSImages/cj2.jpg"/></a></li>
+        <li><a href="../dibandiy3/dbdiy.html"  id="nav3"><img src="Templates/land/html/SSImages/cj3.jpg"/></a></li>
+        <li><a href="../dibandiy2/dbdiy.html"  id="nav2"><img src="Templates/land/html/SSImages/cj2.jpg"/></a></li>
+        <li><a href="../dibandiy3/dbdiy.html"  id="nav3"><img src="Templates/land/html/SSImages/cj3.jpg"/></a></li>
+      </ul>
+    </div>
+    <!-- 场景切换导航 --> 
+    
+    
+    <div class="bh">
+    <span>编号：123456789</span>
+    <a class="a5" href="../../pro_page.html">产品查看</a>
+    <a class="a6" href="#">提交订单</a>
+    </div>
+    
+  </div>
+</div>
+<script>
+$(function (){
+  var e = jQuery.Event("click");
+  $(".doors1 li").eq(0).find("a").trigger(e);
+  $(".doors2 li").eq(0).find("a").trigger(e);
+  $(".doors3 li").eq(0).find("a").trigger(e);
+  $(".doors4 li").eq(0).find("a").trigger(e);
+  $(".doors5 li").eq(0).find("a").trigger(e);
+  $(".doors6 li").eq(0).find("a").trigger(e);
+  $(".doors7 li").eq(0).find("a").trigger(e);
+  $(".doors8 li").eq(0).find("a").trigger(e);
+  $(".doors9 li").eq(0).find("a").trigger(e);
+  $(".doors10 li").eq(0).find("a").trigger(e);
+  $(".doors11 li").eq(0).find("a").trigger(e);
+  $(".doors12 li").eq(0).find("a").trigger(e);
+  $(".doors13 li").eq(0).find("a").trigger(e);
+  $(".doors14 li").eq(0).find("a").trigger(e);
+  $(".doors15 li").eq(0).find("a").trigger(e);
+});
+</script>
+</body>
+</html>

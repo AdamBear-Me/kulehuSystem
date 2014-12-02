@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<title>酷乐虎壁纸系统</title>
+<meta name="keywords" content="酷乐虎壁纸系统" />
+<meta name="description" content="酷乐虎壁纸系统" />
+<meta name="robots" content="all" />
+<meta name="author" content="酷乐虎壁纸系统" />
+<meta name="Classification" content="酷乐虎壁纸系统" />
+<meta name="Copyright" content="酷乐虎网络 CopyRight 2014" />
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__HOME_PUBLIC__/themes/css/style.css">
+
+<script src="__HOME_PUBLIC__/themes/js/jquery-1.10.1.min.js"></script>
+<script src="__HOME_PUBLIC__/themes/js/jquery-migrate-1.2.1.min.js"></script>
+
+
+<script>
+$(function(){
+	$(".top_m_l").animate({top: 22}, 1000);
+	$(".top_m_r").animate({top: 15}, 1000);
+});
+</script>
+
+<!--[if lte IE 6]>
+<script type="text/javascript" src="themes/js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+    DD_belatedPNG.fix('body *');
+</script>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script src="themes/js/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div class="top">
+	<div class="top_m">
+    	<div class="top_m_l">
+          <a href="javascript:void(0)" class="top_a1">{:getName()}</a>
+            <a href="{:U('Product/shop_cart')}" class="top_a2">购物车</a>
+            <a href="{:U('Product/wddd')}" class="top_a3">用户中心</a>
+            <a href="{:U('Product/prosc')}" class="top_a3">产品收藏夹</a>
+        </div>
+        <div class="top_m_r">
+          <a class="a1" href="javascript:void(0)">店内商品</a>
+          <a class="a2" href="{:U('News/index')}">信息中心</a>
+          <a class="a3" href="{:U('Product/product')}">产品中心</a>
+          <a class="a4" href="{:U('Product/huodong')}">优惠活动</a>
+        </div>
+        <div class="tip_r"><a href="javascript:;" onClick="javascript:history.back(-1);" class="btn_back"></a></div>
+    </div>
+</div>
+<!--/top-->
+
+<div class="tip">
+	<div class="tip_l">当前位置： <a href="#">用户中心</a> > <a href="#">订单查询</a></div>
+</div>
+<!--/tip-->
+
+<div class="in_wrapper_pag">
+
+
+	<div class="center">
+      <div class="c_nav">
+        <li><a  href="{:U('Product/user')}">用户资料</a></li>
+        <li><a href="{:U('Product/shop_cart')}">购 物 车</a></li>
+        <li><a  href="{:U('Product/wddd')}">我的订单</a></li>
+        <li><a class="on" href="{:U('Product/ddcx')}">订单查询</a></li>
+        <li><a href="{:U('Product/statistic')}">销售统计</a></li>
+      </div>
+      <div class="c_con">
+        <h3>用户单位</h3>
+        <div class="c_con_2">
+        
+          <div class="gwcdd">
+          <script src="__HOME_PUBLIC__/build/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>
+          
+          <link rel="stylesheet" href="__HOME_PUBLIC__/build/kalendae.css" type="text/css" charset="utf-8">
+          	<h5>
+              <form action="{:U('')}" method="post">
+           	  <div class="gwcddw120"><input type="text" class="auto-kal input_txt border_radius px" style="width:100px;" name="time1"><span>:起始日期</span></div>
+              <div class="gwcddw120"><input type="text" class="auto-kal input_txt border_radius px" style="width:100px;" name="time2"><span>:结束日期</span></div>
+              <div class="gwcddw110"><input type="text" class="input_txt border_radius px" placeholder="客户姓名" style="color:#999; text-align:center;" name="recipient" /></div>
+              <div class="gwcddw110"><input type="text" class="input_txt border_radius px" placeholder="订单状态" style="color:#999; text-align:center;" /></div>
+              <div class="gwcddw110"><input class="txtbtn" id="windowclosebutton" name="" type="submit" value="查询" style="margin:0px; height:33px; line-height:13px;"/></div>
+              </form>
+            </h5>
+            <div class="clear"></div>
+              <ul>
+                  <li>
+                      <table width="100%" cellspacing="0" cellpadding="0" class="tabl" style="background:#eaeaea;">
+                          <tr>
+                              <td width="22%">订单编号</a></td>
+                              <td width="24%">客户名称</td>
+                              <td width="12%">产品种类</td>
+                              <td width="14%">订单总额</td>
+                              <td width="14%">订单状态</td>
+                              <td width="14%">订单日期</td>
+                          </tr>
+                      </table>
+                  </li>
+                  <volist name="list" id="vo">
+                      <li>
+                          <table width="100%" cellspacing="0" cellpadding="0" class="tabl" style="background:#eaeaea;">
+                              <tr>
+                                  <td width="22%"><a href="javascript:void(0)">{$vo.number}</a></td>
+                                  <td width="24%">{$vo.recipient}</td>
+                                  <td width="12%">{$vo.count}种</td>
+                                  <td width="14%">{$vo.price}</td>
+                                  <td width="14%"><span class="gwcddcl">{$vo.status|get_status}</span></td>
+                                  <td width="14%">{$vo.time|date="Y-m-d",###}</td>
+                              </tr>
+                          </table>
+
+                      </li>
+                  </volist>
+                  <div class="paginationpag1">
+                      {$page}
+                  </div>
+              </ul>
+            
+        <div class="clear"></div>
+        <!--<div class="paginationpag1">
+				<ul>
+					<li class="disabled"><a href="#">&laquo;</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+					<li><a href="#">&raquo;</a></li>
+				</ul>
+		</div>-->
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+<script type="text/javascript" src="__HOME_PUBLIC__/themes/js/lanrenzhijia.js"></script>
+<div class="PathInner" id="PathMenu" style="position:fixed; left:20px; bottom:20px;">
+  <div class="PathMain">
+    <div class="Tmain" onclick="PathRun();">
+      <div class="rotate"><span class="cover"></span></div>
+    </div>
+  </div>
+  <div class="PathItem">
+   <a class="link" href="{:U('Product/product')}" title="产品中心"> 
+    <span class="item" style="background-image:url(__HOME_PUBLIC__/images/moment_icn_pic.png);"></span>
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/huodong')}" title="优惠活动"> 
+    <span class="item" style="background-image:url(__HOME_PUBLIC__/images/moment_icn_info.png);"></span> 
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/search')}" title="高级搜索"> 
+    <span class="item" style="background-image: url(__HOME_PUBLIC__/images/moment_icn_address.png);"></span> 
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/shop_cart')}" title="我的购物车"> 
+    <span class="item" style="background-image: url(__HOME_PUBLIC__/images/moment_icn_price.png);"></span> 
+   </a>
+  </div>
+</div>
+</body>
+</html>

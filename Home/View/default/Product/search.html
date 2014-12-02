@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<title>酷乐虎壁纸系统</title>
+<meta name="keywords" content="酷乐虎壁纸系统" />
+<meta name="description" content="酷乐虎壁纸系统" />
+<meta name="robots" content="all" />
+<meta name="author" content="酷乐虎壁纸系统" />
+<meta name="Classification" content="酷乐虎壁纸系统" />
+<meta name="Copyright" content="酷乐虎网络 CopyRight 2014" />
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__HOME_PUBLIC__/themes/css/style.css">
+
+<script src="__HOME_PUBLIC__/themes/js/jquery-1.10.1.min.js"></script>
+<script src="__HOME_PUBLIC__/themes/js/jquery-migrate-1.2.1.min.js"></script>
+
+<link rel="stylesheet" href="__HOME_PUBLIC__/themes/css/idangerous.swiper.css"><!-- 划屏 -->
+<link rel="stylesheet" href="__HOME_PUBLIC__/themes/css/idangerous.swiper.scrollbar.css"><!-- 划屏滚动条 -->
+<script src="__HOME_PUBLIC__/themes/js/idangerous.swiper-2.0.min.js"></script><!-- 划屏 -->
+<script src="__HOME_PUBLIC__/themes/js/idangerous.swiper.scrollbar-2.0.js"></script><!-- 划屏滚动条 -->
+
+
+<script type="text/javascript" src="__HOME_PUBLIC__/themes/js/jquery.rotate.min.js"></script><!-- 图标翻转 -->
+
+<script>
+$(function(){
+	$(".top_m_l").animate({top: 22}, 1000);
+	$(".top_m_r").animate({top: 15}, 1000);
+});
+
+$(document).ready(function(){
+$(".img2").rotate({ 
+   bind: 
+     { 
+        mouseover : function() { 
+            $(this).rotate({animateTo:90});
+        },
+        mouseout : function() { 
+            $(this).rotate({animateTo:0});
+        }
+     } 
+});
+});
+</script>
+
+<!--[if lte IE 6]>
+<script type="text/javascript" src="themes/js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+    DD_belatedPNG.fix('body *');
+</script>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script src="themes/js/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div class="top">
+	<div class="top_m">
+    	<div class="top_m_l">
+          <a href="javascript:void(0)" class="top_a1">{:getName()}</a>
+            <a href="{:U('Product/shop_cart')}" class="top_a2">购物车</a>
+            <a href="{:U('Product/wddd')}" class="top_a3">用户中心</a>
+            <a href="{:U('Product/prosc')}" class="top_a3">产品收藏夹</a>
+        </div>
+        <div class="top_m_r">
+          <a class="a1" href="javascript:void(0)">店内商品</a>
+          <a class="a2" href="{:U('News/index')}">信息中心</a>
+          <a class="a3" href="{:U('Product/product')}">产品中心</a>
+          <a class="a4" href="{:U('Product/huodong')}">优惠活动</a>
+        </div>
+        <div class="tip_r"><a href="javascript:;" onClick="javascript:history.back(-1);" class="btn_back"></a></div>
+    </div>
+</div>
+<!--/top-->
+
+<div class="tip">
+	<div class="tip_l">当前位置： <a href="#">产品中心</a> > <a href="#">搜索</a></div>
+</div>
+<!--/tip-->
+
+<div class="in_wrapper_pag">
+    <div class="search">
+      <table>
+        <tr>
+          <th colspan="3">高级搜索</th>
+        </tr>
+        <tr>
+          <td colspan="3" style="padding:5px 0;"></td>
+        </tr>
+        <tr class="hr">
+          <td colspan="3" style="padding:0;"></td>
+        </tr>
+        <tr>
+          <td colspan="3" style="padding:5px 0;"></td>
+        </tr>
+        <tr>
+          <td>关 键 字：
+            <input class="txt" name="" type="text" /></td>
+          <td>编&nbsp;&nbsp;&nbsp;&nbsp;号：
+            <select class="txt2" name="">
+              <option></option>
+            </select></td>
+          <td>品&nbsp;&nbsp;&nbsp;&nbsp;牌：
+            <select class="txt2" name="">
+              <option></option>
+            </select></td>
+        </tr>
+        <tr>
+          <td>用&nbsp;&nbsp;&nbsp;&nbsp;途：
+            <input class="txt" name="" type="text" /></td>
+          <td>风&nbsp;&nbsp;&nbsp;&nbsp;格：
+            <select class="txt2" name="">
+              <option></option>
+            </select></td>
+          <td>材&nbsp;&nbsp;&nbsp;&nbsp;质：
+            <select class="txt2" name="">
+              <option></option>
+            </select></td>
+        </tr>
+        <tr>
+          <td colspan="3" style="padding:5px 0;"></td>
+        </tr>
+        <tr class="hr">
+          <td colspan="3" style="padding:0;"></td>
+        </tr>
+        <tr>
+          <td colspan="3" style="padding:5px 0;"></td>
+        </tr>
+        <tr>
+          <td>价&nbsp;&nbsp;&nbsp;&nbsp;格：
+            <input class="txt" name="" type="text" /></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;至&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="txt" name="" type="text" /></td>
+          <td>元</td>
+        </tr>
+        <tr>
+          <td colspan="3" style="padding:5px 0;"></td>
+        </tr>
+        <tr class="hr">
+          <td colspan="3" style="padding:0;"></td>
+        </tr>
+        <tr>
+          <td colspan="3" style="padding:5px 0;"></td>
+        </tr>
+      </table>
+      <div align="right"><a class="btn_ss" href="#"><img src="__HOME_PUBLIC__/images/btn_ss.png" /></a></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="__HOME_PUBLIC__/themes/js/lanrenzhijia.js"></script>
+<div class="PathInner" id="PathMenu" style="position:fixed; left:20px; bottom:20px;">
+  <div class="PathMain">
+    <div class="Tmain" onclick="PathRun();">
+      <div class="rotate"><span class="cover"></span></div>
+    </div>
+  </div>
+  <div class="PathItem">
+   <a class="link" href="{:U('Product/product')}" title="产品中心"> 
+    <span class="item" style="background-image:url(__HOME_PUBLIC__/images/moment_icn_pic.png);"></span>
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/huodong')}" title="优惠活动"> 
+    <span class="item" style="background-image:url(__HOME_PUBLIC__/images/moment_icn_info.png);"></span> 
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/search')}" title="高级搜索"> 
+    <span class="item" style="background-image: url(__HOME_PUBLIC__/images/moment_icn_address.png);"></span> 
+   </a>
+  </div>
+  <div class="PathItem"> 
+   <a class="link" href="{:U('Product/shop_cart')}" title="我的购物车"> 
+    <span class="item" style="background-image: url(__HOME_PUBLIC__/images/moment_icn_price.png);"></span> 
+   </a>
+  </div>
+</div>
+
+</body>
+</html>

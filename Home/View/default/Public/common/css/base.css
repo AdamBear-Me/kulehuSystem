@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+body { margin:0; padding:0; font-size:12px; font-family:"Arial","微软雅黑","宋体"; color:#909090; line-height:24px; background-color:#131313;}
+a,a:hover {color:#cdcdcd;text-decoration:none; border:0px;}
+ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0px;padding:0px;}ul,li,dl,dt,dd{list-style-type:none;}
+.cl { width:100%; clear:both;}.fr { float:right;}.fl { float:left;}.hr10 { width:100%; height:10px; clear:both;}.hr20 { width:100%; height:20px; clear:both;} img{border:0;}.tc { text-align:center;}
+.font18 { font-size:18px;}.font16 { font-size:16px;}
+.inline_block{ display:inline-block;}
+.main { margin:0 auto; position:relative;}
+.white,.white a:link,.white a:visited,.white a:hover,a.white,a.white:hover { color:#ffffff;}
+.yellow { color:#fd8200;}.gray { color:#999999;}.black { color:#000000;}
+
+
+/***/
+a{ blr:expression(this.onFocus=this.blur()); outline:none;}
+a:active{ star:expression(this.onFocus=this.blur());}
+:focus{ outline:0;}
+
+body{ background:url(../image/bg.png) repeat;}
+.h45{ height:45px;}
+.h212{ height:212px;}
+.h145{ height:145px;}
+.h102{ height:102px;}
+.h133{ height:133px;}

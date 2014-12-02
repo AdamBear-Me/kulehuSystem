@@ -1,0 +1,126 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>编辑产品</h2>
+    </div>
+    <div class="tools">
+        <a class="btn alldelProduce" href="javascript:void(0)">确认删除</a>
+    </div>
+
+    <!-- 数据列表 -->
+    <div class="data-table">
+        <div class="data-table table-striped">
+    <table class="">
+    <thead>
+        <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>名称</th>
+        <th>产品编号</th>
+        <th>进货价</th><!-- 上一级代理价 -->
+        <th>批发价</th><!-- 代理价 -->
+        <if condition="$user_id eq 1">
+            <th>建议零售价</th>
+            <else/>
+            <th>零售价</th>
+        </if>
+        
+        <th>规格</th>
+        <th>品牌</th>
+        <th>游览图片（190x144）</th>
+        <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <notempty name="list">
+        <volist name="list" id="vo">
+        <tr class="tr" id="{$vo.produce_id}">
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.produce_id}" /></td>
+            <td>{$vo.produce_id|get_product_name}</td>
+            <td>{$vo.produce_id|get_product_number}</td>
+            <td>{$vo.in_price}</td>
+            <td>{$vo.daili_price}</td>
+            <td>{$vo.price}</td>
+            <td>{$vo.produce_id|get_product_size}</td>
+            <td>{$vo.brand_id|get_brand}</td>
+            <td><img src="__ROOT__/Uploads/Images/{$vo.image1}" style="height: 50px;"></td>
+            <td>
+                <a class="delProduce" href="javascript:void(0)">删除</a>
+            </td>
+        </tr>
+        </volist>
+        <else/>
+        <td colspan="7" class="text-center"> aOh! 暂时还没有内容! </td>
+        </notempty>
+    </tbody>
+    </table>
+
+        </div>
+    </div>
+    <div class="page">
+        {$page}
+    </div>
+    <input type="hidden" id="uid" value="{$uid}"/>
+</block>
+
+<block name="script">
+   <script type="text/javascript">
+        $(function(){
+            //单项删除样本
+            $(".delProduce").click(function(){
+                var uid = $("#uid").val();
+                var produce_id = $(this).closest("tr").children("td").eq(0).find(".ids").val();
+                var tr = $(this).closest("tr");
+                $.post(
+                    "__URL__/delProduce",
+                    {uid:uid,produce_id:produce_id},
+                    function(data){
+                        if (data=='a') {
+                            tr.remove();
+                            alert("删除成功");
+                        }else{
+                            alert("删除失败");
+                        };
+                    }
+                );
+            });
+
+            //批量删除样本
+            $(".alldelProduce").click(function(){
+                var uid = $("#uid").val();
+                var arr_id = new Array(); 
+                var count = 0;
+                for(var i=0;i<$('.tr').length;i++){
+                    if($('.ids').eq(i).is(':checked'))
+                    {
+                        var id = $('.ids').eq(i).val();
+                        arr_id[count++]=id;
+                    }
+
+                }
+                if (arr_id.length!=0) { 
+                    $.post(
+                        "__URL__/alldelProduce",
+                        {
+                            arr_id:arr_id,
+                            uid:uid
+                        },
+                        function(data){
+                            if (data=='a') {
+                                for(var i=0; i<arr_id.length;i++){
+                                    $("tr[id="+arr_id[i]+"]").hide();
+                                }
+                                alert("删除成功");
+                            }else{
+                                alert("删除失败");
+                            };
+                        }
+                    );
+                }else{
+                    alert("请选中需要删除的产品");
+                };
+            });
+        });
+   </script>
+</block>

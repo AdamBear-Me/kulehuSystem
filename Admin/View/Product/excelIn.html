@@ -1,0 +1,34 @@
+<extend name="Public/base" />
+
+<block name="body">
+<!-- 标题栏 -->
+		<div class="tab-wrap">
+		<ul class="tab-nav nav">
+		<li class="current"><a href="{:U('excelIn')}">批量添加产品</a></li>
+		</ul>
+		<div class="tab-content">
+	<!-- 修改密码表单 -->
+    <form action="{:U('Product/excel')}" method="post" class="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+		<div class="form-item">
+			<label class="item-label">excel文件上传：<span class="check-tips">（批量上传产品信息）</span></label>
+			<div class="controls">
+				<input type="file" name="import" class="text input-large"  autocomplete="off" />
+			</div>
+		</div>
+        
+		<div class="form-item">
+			<input type="hidden" name="warehouse_id" value="{$warehouse_id}">
+			<button type="submit" class="btn submit-btn " id="submit" target-form="form-horizontal">确 认</button>
+			<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+		</div>
+	</form>
+			</div>
+	</div>
+	
+</block>
+
+<block name="script">
+    //导航高亮
+    highlight_subnav('{:U('Orders/excelAdd')}');
+	</script>
+</block>

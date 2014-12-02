@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>批量上传图片</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/upload.css" />
+    <script type="text/javascript">
+        var PUBLIC = "__PUBLIC__";
+        var swf = PUBLIC + "/Admin/flash/Uploader.swf";    //flash文件
+        var action ="{:U('Web/upload','','',true)}";   //自定义Action，也就是上传操作的控制器
+        var path = "{$savePath}";
+    </script>
+    <style>
+        *{margin:0;padding:0;}
+        #savePath{width:800px;margin:0 auto;text-align:center}
+        #savePath a{text-decoration:none;display:inline-block;width:100px;height:35px;line-height:35px;background:#428bca;color:#fff;border-radius:3px;text-align:center;margin:10px;}
+        #savePath a.cur{background:#66CD00}
+        #savePath #reset{background:#e60012}
+        .result .total{color:#428bca;font-size:16px;font-weight:bold}
+        .result .success{color:green;font-size:16px;font-weight:bold}
+        .result .error{color:red;font-size:16px;font-weight:bold}
+    </style>
+</head>
+<body>
+    <div id="savePath">
+        <a href="{:U('Web/index',array('savePath'=>190))}" <eq name="savePath" value="190">class="cur"</eq>>190</a>
+        <a href="{:U('Web/index',array('savePath'=>348))}" <eq name="savePath" value="348">class="cur"</eq>>348</a>
+        <a href="{:U('Web/index',array('savePath'=>707))}" <eq name="savePath" value="707">class="cur"</eq>>707</a>
+        <a href="{:U('Web/index',array('savePath'=>164))}" <eq name="savePath" value="164">class="cur"</eq>>164缩略图</a>
+        <a href="{:U('Web/index',array('savePath'=>1149))}" <eq name="savePath" value="1149">class="cur"</eq>>1149</a>
+        <a href="{:U('Web/index')}" id="reset">刷新初始化</a>
+        <input type="hidden" name="savePath" value="{$savePath}" />
+    </div>
+    <div id="wrapper">
+        <div id="container">
+            <!--头部，相册选择和格式选择-->
+            <div id="uploader">
+                <div class="queueList">
+                    <div id="dndArea" class="placeholder">
+                        <div id="filePicker"></div>
+                        <p>或将照片拖到这里，单次最多可选300张</p>
+                    </div>
+                </div>
+                <div class="statusBar" style="display:none;">
+                    <div class="result"></div>
+                    <div class="progress">
+                        <span class="text">0%</span>
+                        <span class="percentage"></span>
+                    </div><div class="info"></div>
+                    <div class="btns">
+                        <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="__PUBLIC__/static/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/js/webuploader.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/js/upload.js"></script>
+</body>
+</html>
